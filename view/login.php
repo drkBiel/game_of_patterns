@@ -4,15 +4,15 @@
 
 
 <body> 
-<header class="bg-light">
+<header class="bg-gradient">
   <a href=""><img src="img/logo.jpg" width="160" height="60"  class="position-absolute"></a>
 <ul class="nav justify-content-end form-inline">
   <div class="nav-item form-group">
-   <label class="mr-sm-2 text-primary">Email:</label>
+   <label class="mr-sm-2 text-warning">Email:</label>
    <input class="form-control m-2 mr-sm-2" type="email" name="email">
    </div>
    <div class="nav-item form-group">
-   <label class="text-primary mr-sm-2">Senha:</label>
+   <label class="text-warning mr-sm-2">Senha:</label>
    <input class="form-control m-2 mr-sm-2" type="password" name="senha">  
    </div>
 </ul>
@@ -40,7 +40,7 @@
   
   <div class="form-group col-md-12">
     <label>Senha:</label>
-    <input type="password" class="form-control col-md-10" placeholder="Password">
+    <input type="password" class="form-control col-md-10" placeholder="Escolha uma senha">
   </div>
 
   <div class="form-group col-md-12">
@@ -71,10 +71,20 @@
 </div>
 </div>
 </div>
+<!-- Rodapé -->
+<footer class="card text-center">
 
-<footer>
-  
+  <div class="card-body">
+  	<h5 class="card-title text-warning">Aceitamos Sugestões</h5>
+  	<p>Toda contribuição será bem vinda</p>
+  	<a href="login.php" class="btn btn-light">Voltar Ao Topo</a>
+  </div>
+  <div class="card-footer">
+  	Entrega do dia 11 de Agosto de 2019.
+  </div>
 </footer>
+   
+
 
 </body>
 
