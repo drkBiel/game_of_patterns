@@ -30,7 +30,7 @@
    	 	<h1 class="display-4">Bem Vindo!</h1>
    	 	<p class="lead">Junte a nós e aprenda da melhor forma possível os padrões de projeto mais populares</p>
    	 	<hr class="my-4">
-   	 	<p class="lead">Aqui você aprende junto com vários outros estudantes.Além disso, Pode ainda avaliar seu rendimento e interagir com colegas através do seu ranking em nosso fórum!</p>
+   	 	<p class="lead">Aqui você aprende junto com vários outros estudantes. Além disso, pode ainda avaliar seu rendimento e interagir com colegas através de ranking e nosso fórum!</p>
    	 	<p>
    	 		<input class="btn btn-outline-primary" value="Saiba mais" type="button" name="">
    	 	</p>
@@ -67,7 +67,7 @@
      <br>
    </div>
   <div align="center" class="form-group col-md-12">
-    <button type="submit" class="btn btn-outline-dark col-md-6">Inscreva - me</button>
+    <button type="submit" class="btn btn-outline-warning col-md-6">Inscreva - me</button>
   </div>
 
   <div align="center" class="form-group col-md-12">

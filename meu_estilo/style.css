@@ -1,0 +1,17 @@
+
+.jumbotron{
+  background-color: #c8c8c8;
+}
+
+h1,h6{
+	color: #fa7202;
+
+}
+h3{
+	color: #75b3ff;
+}
+
+.btn-outline-warning{
+	color: #fa7202;
+	border-color: #fa7202;
+}
