@@ -15,17 +15,27 @@
    <label class="text-warning mr-sm-2">Senha:</label>
    <input class="form-control m-2 mr-sm-2" type="password" name="senha">  
    </div>
+   <div class="nav-item form-group">
+   	 <input class="btn btn-outline-warning mr-2" type="button" name="" value="Entrar">
+   </div>
 </ul>
 </header>
 <!-- Logo -->
 
 <div class="row">
   <div class="col-md-6">
-    <br>
-    <br>
-    <h1 align="center">Game Of Patterns</h1><br>
-
-
+  	<br><br>
+   <div class="container">
+   	 <div class="jumbotron bg-light">
+   	 	<h1 class="display-4">Bem Vindo!</h1>
+   	 	<p class="lead">Junte a nós e aprenda da melhor forma possível os padrões de projeto mais populares</p>
+   	 	<hr class="my-4">
+   	 	<p class="lead">Aqui você aprende junto com vários outros estudantes.Além disso, Pode ainda avaliar seu rendimento e interagir com colegas através do seu ranking em nosso fórum!</p>
+   	 	<p>
+   	 		<input class="btn btn-outline-primary" value="Saiba mais" type="button" name="">
+   	 	</p>
+   	 </div>
+  </div>  
 </div>
 <!-- form cadastro -->
   <div class="col-md-6">
@@ -57,15 +67,15 @@
      <br>
    </div>
   <div align="center" class="form-group col-md-12">
-    <button type="submit" class="btn btn-dark col-md-6">Inscreva - me</button>
+    <button type="submit" class="btn btn-outline-dark col-md-6">Inscreva - me</button>
   </div>
 
   <div align="center" class="form-group col-md-12">
-    <button type="submit" class="btn btn-primary col-md-6">Entre com o Facebook</button>
+    <button type="submit" class="btn btn-outline-primary col-md-6">Entre com o Facebook</button>
   </div>
 
   <div align="center" class="form-group col-md-12">
-    <button type="submit" class="btn btn-danger col-md-6">Entre com o Google</button>
+    <button type="submit" class="btn btn-outline-danger col-md-6">Entre com o Google</button>
   </div>
 </form>
 </div>
