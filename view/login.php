@@ -27,8 +27,8 @@
   	<br><br>
    <div class="container">
    	 <div class="jumbotron bg-light">
-   	 	<h1 class="display-4">Bem Vindo!</h1>
-   	 	<p class="lead">Junte a nós e aprenda da melhor forma possível os padrões de projeto mais populares</p>
+   	 	<h1 class="display-4"><strong>Bem Vindo!</strong></h1>
+   	 	<p class="lead">Junte a nós e aprenda da melhor forma possível os <strong>padrões de projetos</strong> mais populares</p>
    	 	<hr class="my-4">
    	 	<p class="lead">Aqui você aprende junto com vários outros estudantes. Além disso, pode ainda avaliar seu rendimento e interagir com colegas através de ranking e nosso fórum!</p>
    	 	<p>
