@@ -8,11 +8,11 @@
   <a href=""><img src="img/logo.jpg" width="160" height="60"  class="position-absolute"></a>
 <ul class="nav justify-content-end form-inline">
   <div class="nav-item form-group">
-   <label class="mr-sm-2 text-warning">Email:</label>
+   <label class="mr-sm-2">Email:</label>
    <input class="form-control m-2 mr-sm-2" type="email" name="email">
    </div>
    <div class="nav-item form-group">
-   <label class="text-warning mr-sm-2">Senha:</label>
+   <label class="mr-sm-2">Senha:</label>
    <input class="form-control m-2 mr-sm-2" type="password" name="senha">  
    </div>
    <div class="nav-item form-group">
@@ -28,11 +28,11 @@
    <div class="container">
    	 <div class="jumbotron bg-light">
    	 	<h1 class="display-4"><strong>Bem Vindo!</strong></h1>
-   	 	<p class="lead">Junte a nós e aprenda da melhor forma possível os <strong>padrões de projetos</strong> mais populares</p>
+   	 	<p class="lead">Junte-se a nós e aprenda da melhor forma possível os <strong>padrões de projetos</strong> mais populares</p>
    	 	<hr class="my-4">
    	 	<p class="lead">Aqui você aprende junto com vários outros estudantes. Além disso, pode ainda avaliar seu rendimento e interagir com colegas através de ranking e nosso fórum!</p>
    	 	<p>
-   	 		<input class="btn btn-outline-primary" value="Saiba mais" type="button" name="">
+   	 		<input class="btn btn-info" value="Saiba mais" type="button" name="">
    	 	</p>
    	 </div>
   </div>  

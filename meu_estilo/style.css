@@ -3,6 +3,15 @@
   background-color: #c8c8c8;
 }
 
+.btn-outline-warning{
+	color: #fa7202;
+	border-color: #fa7202;
+}
+
+.btn-warning{
+	color: #fa7202;
+}
+
 h1,h6{
 	color: #fa7202;
 
@@ -15,3 +24,6 @@ label{
 	color: #fa7202;
 }
 
+.card-footer{
+  background-image: linear-gradient(to top, #75b3ff, white);
+}

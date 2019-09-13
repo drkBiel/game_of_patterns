@@ -15,7 +15,7 @@
 <div class="container mt-4">
 	
 	<div class="progress">
-		<div class="progress-bar progress-bar-striped bg-info" role="progress-bar" style=" width:10%" aria-valuenow="2" aria-valuemin="1" aria-valuemax="10">1
+		<div class="progress-bar progress-bar-striped bg-info" role="progress-bar" style=" width:10%" aria-valuenow="1" aria-valuemin="1" aria-valuemax="10">
 		</div>
 	</div>
 
