@@ -12,7 +12,9 @@
 	<input type="submit" class="btn btn-outline-warning position-relative m-2" value="Atualizar Perfil" name="">
 </div>
 
-
+<div class="col-md-9">
+	
+</div>
 
 
 
