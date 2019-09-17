@@ -48,7 +48,7 @@
 		</div>
 
 		<div align="center" class="form-group col-md-4">
-			<button type="submit" class="btn btn-outline-warning col-md-4">Cancelar</button>
+			<button type="submit" class="btn btn-outline-warning col-md-4">Sair</button>
 		</div>
 
 		</div>
