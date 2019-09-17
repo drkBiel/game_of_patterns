@@ -12,6 +12,10 @@
 	color: #fa7202;
 }
 
+.bg-info{
+	color: #75b3ff;
+}
+
 h1,h6{
 	color: #fa7202;
 
@@ -26,4 +30,8 @@ label{
 
 .card-footer{
   background-image: linear-gradient(to top, #75b3ff, white);
+}
+
+body{
+	background-image: linear-gradient(to top, #75b3ff, white);
 }
