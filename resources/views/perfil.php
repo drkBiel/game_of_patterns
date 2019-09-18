@@ -1,33 +1,43 @@
-<?php include "header.php"; ?>
-
-
+<?php 
+  include "header.php";
+ ?>
 <body>
-  <header class="bg-gradient">
-    <a href=""><img src="img/logo.jpg" width="160" height="60"  class="img-fluid"></a>
-  </ul>
-  </header>	
-  <div class="row">
-  <div class="col-md-3 text-center">
-    <img src="img/perfil.png" alt="foto_perfil" class="img-thumbnail"><br>
-    <input type="submit" class="btn btn-outline-warning position-relative m-2" value="Atualizar Perfil" name="">
-  </div>
+<header class="bg-light"> <!-- Cabeçalho -->
+  <a href=""><img src="img/logo.jpg" width="160" height="60"  class="position-absolute"></a>
+<ul class="nav justify-content-end form-inline">
+  <li class="nav-item">
+    <button type="button" class="btn btn-outline-info m-2">
+      <span class="badge badge-light"><img src="img/inicio-icone.png"></span> Página Inicial
+    </button> 
 
-  <div class="col-md-3 boder border-info">
-    <button type="button" class="btn btn-outline-warning">
-      Posição no Ranking <span class="badge badge-info">1º</span>
-  </button>
-  </div>
-  <div class="col-md-3">
-    <button type="button" class="btn btn-outline-warning">
-      Pontuação Geral <span class="badge badge-info">20 Pts</span>
-  </button>
-  </div>
-  <div class="col-md-3">
-    <button type="button" class="btn btn-outline-warning">
-      Número de Quizzes Respondidos <span class="badge badge-info">2</span>
+    <button type="button" class="btn btn-outline-info m-2">
+      <span class="badge badge-light"><img src="img/adiciona-icone.png"></span> Criar Quiz
     </button>
-  </div>
-  </div>
+
+    <button type="button" class="btn btn-outline-info m-2">
+      <span class="badge badge-light"><img src="img/perfil-icone.png"></span> Renan Lima
+    </button>
+  </li>
+  </ul>
+</header> <!-- Fim de cabeçalho -->
+
+<div class="col-md-3">
+	
+</div>
+
+
+	
+
+
+
+
+
+
+
+
+
 
 </body>
- <?php include "foot.php";?>
+ <?php 
+   include "foot.php"; 
+ ?>
