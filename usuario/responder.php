@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,7 +19,7 @@
 
 	<body onload="parar();">
 
-		<header class="bg-light"> 
+		<header class="bg-gradient"> 
 			<a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute"></a>
 			<ul class="nav justify-content-end form-inline">
 			<li class="nav-item">
@@ -36,9 +37,9 @@
 			</li>
 			</ul>
 		</header> 
-		<div id="quiz-Pde1" style="margin -top:: 20%;">
-			<div id="quiz-header">
-				<h1>Quiz I - Padrões estruturais </h1>
+		<div class="container bg-gradient" id="quiz-Pde1" style="margin -top:: 20%;">
+			<div class="container" id="quiz-header">
+				<h1>Quiz I - Padrões Estruturais </h1>
 				<br>
 				<h3><span id="hora">00:</span><span id="minuto">00:</span><span id="segundo">00</span></h3><br>
 				<br>
