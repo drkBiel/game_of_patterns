@@ -11,7 +11,7 @@
   <body>
 
   <header class="bg-gradient">
-    <a href=""><img src="view/img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid"></a>
+    <a href=""><img src="img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid"></a>
     <ul class="nav justify-content-end form-inline">
         
         <form method="post" action="acoes/usuario.php" class="nav-item form-group">
