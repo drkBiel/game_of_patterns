@@ -1,24 +1,15 @@
 
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="estrutura/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="estrutura/css/style.css" type="text/css"></head>
-    <title>Document</title>
-  </head>
+<?php 
+   include "view/header.php";
+ ?>
   
   <body>
 
   <header class="bg-gradient">
-    <a href=""><img src="img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid"></a>
+    <a href=""><img src="view/img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid"></a>
     <ul class="nav justify-content-end form-inline">
         
-        <form method="post" action="acoes/usuario.php">
+        <form method="post" action="acoes/usuario.php" class="nav-item form-group">
           <div class="nav-item form-group">
             <label class="mr-sm-2">Email:</label>
             <input class="form-control m-1 mr-sm-2" type="email" name="lgEmail">
@@ -100,6 +91,7 @@
           <input type="submit" class="btn btn-outline-warning col-md-6" id="btnCad" value="Inscreva - me">
         </div>
 
+
         
       </form>
     </div>
@@ -118,14 +110,7 @@
   </div>
 </footer>
   
-  </body>
-
-
-</html>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
 
 <script>
   $('#btnCad').click(function(event) {
@@ -142,4 +127,5 @@
 </script>
 
 <?php 
+ include "view/foot.php";
 ?>
