@@ -1,39 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="../estrutura/css/style.css">
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="../estrutura/css/style.css" type="text/css"></head>
-		<link rel="stylesheet" type="text/css" href="../estrutura/css/jquery.quiz-min.css" />
-
-		<title>Responder Quiz</title>
-	</head>
-
-	<body>
-		<div class="col-md-12">
-			<!-- Logo -->
-			<a href=""><img src="../img/logo.jpg" width="160" height="60"></a>
-
-			<!-- Texto -->
-
-		</div>
-		<div id="quiz">
-  <div id="quiz-header">
-    <h1>Quiz I - Padrões estruturais </h1>
-    <p><a id="quiz-home-btn">Home</a></p>
-  </div>
-  <div id="quiz-start-screen">
-    <p><a href="#" id="quiz-start-btn" class="quiz-button">Start</a></p>
-  </div>
+<?php
+   include "header.php"; 
+ ?>
+<body>
+ <div class="col-md-12">
+<!-- Logo -->
+<a href=""><img src="img/logo.jpg" width="160" height="60"></a>
+<!-- Texto -->
 </div>
+ 
 
 
-		<div class="container mt-4">
-		<progress min="1" max="100" value="20" width="80%"></progress>
+
+<div class="container mt-4">
+<div id="quiz" align="center">
+  <div id="quiz-header">
+  	<hr>
+    <h1 class="bg-light">Quiz I - Padrões estruturais </h1>
+    <p><a id="quiz-home-btn" class="btn btn-outline-warning">Home</a></p>
+  </div>
+ <div id="quiz-start-screen">
+    <p><a href="#" id="quiz-start-btn" class="quiz-button">Start</a></p>
+ </div>
+</div>
+ 
+<div class="progress">
+   <div class="progress-bar progress-bar-striped bg-info" role="progress-bar" style=" width:10%" aria-valuenow="1" aria-valuemin="1" aria-valuemax="10">
+	</div>
+ </div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 			<script src="../estrutura/js/jquery.quiz-min.js"></script>
