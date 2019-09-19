@@ -17,7 +17,7 @@
 }
 
 .question {
-    font-size: 1.25em;
+    font-size: 1.50em;
 }
 
 .answers {
@@ -27,6 +27,7 @@
 
 .answers a {
     display: block;
+    font-size: 1.10em;
     padding: 0.5em 1em;
     margin-bottom: 0.5em;
     background: #fff;
@@ -46,29 +47,31 @@
 }
 
 #quiz-controls {
-    background: #333;
-    color: #fff;
+    background: #fff;
+    color: #333;
     padding: 0.5em 1em;
     text-align: center;
     border-radius: 10px;
 }
 
-#quiz-response {}
 #quiz-results {
     font-size: 1.25em;
 }
 
 #quiz-buttons a,
+
 .quiz-container .quiz-button {
     display: inline-block;
     padding: 0.5em 1em;
     background: #333;
-    color: #fff;
+    color: #333;
     border-radius: 10px;
+    position: relative;
+    bottom: 20%;
 }
 #quiz-buttons a {
-    background: #fff;
-    color: #333;
+    background: #333;
+    color: #fff;
 }
 
 /* Quiz State Overrides */
@@ -78,6 +81,6 @@
     padding: 0;
 }
 .quiz-results-state #quiz-buttons a {
-    background: #333;
-    color: #fff;
+    background: #fff;
+    color: #333;
 }

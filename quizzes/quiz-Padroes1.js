@@ -1,9 +1,13 @@
+
+
 $('#quiz-Pde1').quiz({
     //resultsScreen: '#results-screen',
     //counter: false,
     //homeButton: '#custom-home',
     restartButtonText: "Reiniciar",
+    
     counterFormat: "<hr>  <h2 class='bg-light' style='color: #fa7202;'> Questão %current de %total </h2>  <hr>",
+    
     questions: [
     {
         'q': '1 - Em relação ao padrão Adapter, é correto afirmar? ',
@@ -14,8 +18,9 @@ $('#quiz-Pde1').quiz({
         'd) não há mecanismos de polimorfismo no padrão. Ele possui apenas agregações como forma de adaptação.'
         ],
         'correctIndex': 0,
-        'correctResponse': 'Custom correct response.',
-        'incorrectResponse': 'Custom incorrect response.'
+        'correctResponse': 'Resposta correta.',
+        'incorrectResponse': 'Resposta errada.',
+        'points': 5
     },
 
     {
@@ -28,7 +33,8 @@ $('#quiz-Pde1').quiz({
         ],
         'correctIndex': 3,
         'correctResponse': 'Resposta correta.',
-        'incorrectResponse': 'Resposta errada.'
+        'incorrectResponse': 'Resposta errada.',
+        'points': 5
     },
 
     {
@@ -42,7 +48,8 @@ $('#quiz-Pde1').quiz({
         ],
         'correctIndex': 2,
         'correctResponse': 'Resposta correta.',
-        'incorrectResponse': 'Resposta errada.'
+        'incorrectResponse': 'Resposta errada.',
+        'points': 5
     },
 
     {
@@ -56,7 +63,8 @@ $('#quiz-Pde1').quiz({
         ],
         'correctIndex': 1,
         'correctResponse': 'Resposta correta.',
-        'incorrectResponse': 'Resposta errada.'
+        'incorrectResponse': 'Resposta errada.',
+        'points': 5
     },
 
     {
@@ -70,7 +78,8 @@ $('#quiz-Pde1').quiz({
         ],
         'correctIndex': 3,
         'correctResponse': 'Resposta correta.',
-        'incorrectResponse': 'Resposta errada.'
+        'incorrectResponse': 'Resposta errada.',
+        'points': 5
     }
     ]
 });

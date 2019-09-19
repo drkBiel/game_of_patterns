@@ -1,5 +1,7 @@
-;(function($, window, document, undefined) {
 
+
+;(function($, window, document, undefined) {
+  
   'use strict';
 
   $.quiz = function(el, options) {
@@ -22,6 +24,7 @@
       gameOverScreen = base.options.gameOverScreen,
       nextButtonText = base.options.nextButtonText,
       finishButtonText = base.options.finishButtonText,
+      completeButtonText = base.options.completeButtonText,
       restartButtonText = base.options.restartButtonText,
       currentQuestion = 1,
       score = 0,
@@ -56,15 +59,17 @@
           base.methods.finish();
         });
 
+        $(document).on('click', '#quiz-complete-btn', function(e) {
+          e.preventDefault();
+          window.location.href = "http://www.devmedia.com.br";
+        });
+
         $(document).on('click', '#quiz-restart-btn, #quiz-retry-btn', function(e) {
           e.preventDefault();
           base.methods.restart();
         });
 
-        $(document).on('click', '#quiz-complete-btn', function(e) {
-          e.preventDefault();
-          base.methods.restart();
-        });
+        
       },
       setup: function() {
         var quizHtml = '';
@@ -97,8 +102,9 @@
         quizHtml += '<p id="quiz-response"></p>';
         quizHtml += '<div id="quiz-buttons">';
         quizHtml += '<a href="#" id="quiz-next-btn">' + nextButtonText + '</a>';
-        quizHtml += '<a href="#" id="quiz-finish-btn">' + finishButtonText + '</a>';
-        quizHtml += '<a href="tInicial.php" id="quiz-restart-btn">' + restartButtonText + '</a>';
+        quizHtml += '<a href="javascript:MyFunction();" id="quiz-finish-btn" onclick="parar()">' + finishButtonText + '</a>';
+        quizHtml += '<a href="#" id="quiz-complete-btn" style="background-color:green">' + completeButtonText + '</a>';
+        quizHtml += '<a href="#" id="quiz-restart-btn">' + restartButtonText + '</a>';
         quizHtml += '</div>';
         quizHtml += '</div>';
 
@@ -115,6 +121,7 @@
         $(startScreen).hide();
         $('#quiz-controls').hide();
         $('#quiz-finish-btn').hide();
+        $('#quiz-complete-btn').hide();
         $('#quiz-restart-btn').hide();
         $('#questions').show();
         $('#quiz-counter').show();
@@ -136,7 +143,7 @@
         if (selected === correct) {
           $answerEl.addClass('correct');
           response = questions[currentQuestionIndex].correctResponse;
-          score++;
+          score+=10;
         } else {
           $answerEl.addClass('incorrect');
           response = questions[currentQuestionIndex].incorrectResponse;
@@ -198,11 +205,12 @@
         $('.active-question').hide().removeClass('active-question');
         $('#quiz-counter').hide();
         $('#quiz-response').hide();
-        $('#quiz-finish-btn').show();
+        $('#quiz-finish-btn').hide();
+        $('#quiz-complete-btn').show();
         $('#quiz-next-btn').hide();
         $('#quiz-restart-btn').hide();
         $(resultsScreen).show();
-        var resultsStr = base.options.resultsFormat.replace('%score', score).replace('%total', numQuestions);
+        var resultsStr = base.options.resultsFormat.replace('%score', (score)/numQuestions).replace('%total', numQuestions);
         $('#quiz-results').html(resultsStr);
 
         if (typeof base.options.finishCallback === 'function') {
@@ -258,11 +266,13 @@
     startButton: '#quiz-start-btn',
     homeButton: '#quiz-home-btn',
     resultsScreen: '#quiz-results-screen',
-    resultsFormat: 'You got %score out of %total correct!',
+    resultsFormat: 'Você consegui %score pontos!',
     gameOverScreen: '#quiz-gameover-screen',
     nextButtonText: 'Next',
-    finishButtonText: 'Finish',
-    restartButtonText: 'Restart'
+    finishButtonText: 'Finalizar',
+    completeButtonText: 'Concluir',
+    restartButtonText: 'Restart',
+    pontos: '%score'
   };
 
   $.fn.quiz = function(options) {
