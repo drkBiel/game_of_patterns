@@ -35,7 +35,7 @@
 				
 			</div>
 			<div id="quiz-start-screen">
-				<p><a href="#" id="quiz-start-btn" class=""> <button class="btn btn-primary "> Iniciar quiz </button> </a></p>
+				<p><a href="#" id="quiz-start-btn" class=""> <button class="btn btn-secondary "> Iniciar quiz </button> </a></p>
 			</div>
 		</div>
 
@@ -52,7 +52,7 @@
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="../estrutura/js/jquery.quiz-min.js"></script>
+	<script src="../estrutura/js/jquery.quiz.js"></script>
 	<script src="../quizzes/quiz-Padroes1.js"></script>
 
 

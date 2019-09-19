@@ -60,6 +60,11 @@
           e.preventDefault();
           base.methods.restart();
         });
+
+        $(document).on('click', '#quiz-complete-btn', function(e) {
+          e.preventDefault();
+          base.methods.restart();
+        });
       },
       setup: function() {
         var quizHtml = '';
@@ -93,7 +98,7 @@
         quizHtml += '<div id="quiz-buttons">';
         quizHtml += '<a href="#" id="quiz-next-btn">' + nextButtonText + '</a>';
         quizHtml += '<a href="#" id="quiz-finish-btn">' + finishButtonText + '</a>';
-        quizHtml += '<a href="#" id="quiz-restart-btn">' + restartButtonText + '</a>';
+        quizHtml += '<a href="tInicial.php" id="quiz-restart-btn">' + restartButtonText + '</a>';
         quizHtml += '</div>';
         quizHtml += '</div>';
 
@@ -193,9 +198,9 @@
         $('.active-question').hide().removeClass('active-question');
         $('#quiz-counter').hide();
         $('#quiz-response').hide();
-        $('#quiz-finish-btn').hide();
+        $('#quiz-finish-btn').show();
         $('#quiz-next-btn').hide();
-        $('#quiz-restart-btn').show();
+        $('#quiz-restart-btn').hide();
         $(resultsScreen).show();
         var resultsStr = base.options.resultsFormat.replace('%score', score).replace('%total', numQuestions);
         $('#quiz-results').html(resultsStr);

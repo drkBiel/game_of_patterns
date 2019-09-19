@@ -2,7 +2,8 @@ $('#quiz-Pde1').quiz({
     //resultsScreen: '#results-screen',
     //counter: false,
     //homeButton: '#custom-home',
-    counterFormat: "Questão %current de %total",
+    restartButtonText: "Reiniciar",
+    counterFormat: "<hr>  <h2 class='bg-light' style='color: #fa7202;'> Questão %current de %total </h2>  <hr>",
     questions: [
     {
         'q': '1 - Em relação ao padrão Adapter, é correto afirmar? ',
@@ -16,7 +17,7 @@ $('#quiz-Pde1').quiz({
         'correctResponse': 'Custom correct response.',
         'incorrectResponse': 'Custom incorrect response.'
     },
-    
+
     {
         'q': '2 - O conjunto que representa padrões de projeto estruturais é:',
         'options': [
