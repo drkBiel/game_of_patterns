@@ -1,12 +1,17 @@
 
-<?php 
-   include "view/header.php";
- ?>
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="estrutura/css/style.css">
+</head>
+
   
   <body>
 
   <header class="bg-gradient">
-    <a href=""><img src="view/img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid"></a>
+    <a href=""><img src="img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid"></a>
     <ul class="nav justify-content-end form-inline">
         
         <form method="post" action="acoes/usuario.php" class="nav-item form-group">
@@ -112,20 +117,19 @@
   
 </body>
 
+<script src="estrutura/js/jquery-3.4.1">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 <script>
   $('#btnCad').click(function(event) {
     
     if($('#cdSenha').val() != $('#conf_senha').val()){
       alert( "Senhas incompativeis" );   
       event.preventDefault();
-    }else{
-      alert("Cadastro realizado com sucesso");
     }
           
   });
 
 </script>
-
-<?php 
- include "view/foot.php";
-?>
