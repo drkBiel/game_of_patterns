@@ -59,11 +59,11 @@
 			
 		</div>
 
-		<footer class="card text-center" style=" position:relative; bottom:0;  width:100%;">
+		<!--footer class="card text-center" style=" position:relative; bottom:0;  width:100%;">
 			<div class="card-footer">
 				Entrega do dia 11 de Agosto de 2019.
 			</div>
-		</footer>
+		</footer-->
 	</body>
 
 	<!-- Scripts -->
