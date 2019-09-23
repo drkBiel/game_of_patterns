@@ -35,10 +35,13 @@
 </div> <!-- row -->
 <div class="row">
   <div class="col-3">
-    
+      
   </div>
+  
   <div class="col-9">
-    
+   <h3 class="text-warning">Nome de usuario</h3>
+
+      
   </div>
 </div>
  <?php 
