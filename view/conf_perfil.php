@@ -26,7 +26,10 @@
 </header> 
 <hr><!-- Barra -->
 <!-- divisão -->
-<div  id="area">
+<div  id="area" class="shadow-lg p-3 b-5 bg-light rounded">
+  <div id="cabecalho">
+     <div class="mt-2"><h1 align="center">Atualizar Informações Pessoais</h1></div>
+  </div>
 <div class="row">
 <div class="col-6" id="lado_esquerdo">
   <div align="center">
@@ -36,10 +39,9 @@
 </div>
 
 <div class="col-6" id="lado_direito">
-  <div class="mt-2"><h1 align="center">Atualizar Informações Pessoais</h1></div>
 
   <div id="form">
-    <form class="form-group shadow-lg p-3 b-5 bg-light rounded">
+    <form class="form-group">
       <label>Nome:</label>
       <input class="form-control" type="text" name="nome">
       <label>E-mail:</label>

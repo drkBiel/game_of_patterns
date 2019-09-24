@@ -55,3 +55,6 @@
   height: 50px;
   background-image: linear-gradient (to top, #75b3ff,white);
 }
+div#cabecalho{
+   background-image: linear-gradient (to bottom, #75b3ff,white);
+}
