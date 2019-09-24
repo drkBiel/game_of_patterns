@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<header class="bg-gradient"> 
+<header class="bg-gradient col-md-12"> 
 <a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute"></a>
 <ul class="nav justify-content-end form-inline">
   <li class="nav-item">
