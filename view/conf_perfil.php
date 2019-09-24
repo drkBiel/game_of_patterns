@@ -15,11 +15,11 @@
 <ul class="nav justify-content-end form-inline">
   <li class="nav-item">
     <button type="button" class="btn btn-info m-2">
-      <span class="badge badge-gradient"><img src="img/inicio-icone.png"></span> Página Inicial
+      <span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span> Página Inicial
     </button> 
 
     <button type="button" class="btn btn-info m-2">
-      <span class="badge badge-gradient"><img src="img/perfil-icone.png"></span> Usuário
+      <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span> Usuário
     </button>
   </li>
 </ul>
@@ -53,8 +53,8 @@
       <label>Confirme Senha:</label>
       <input class="form-control" type="password" name="conf_senha">
       <button type="button" class="btn btn-warning mt-2">
-      <span class="badge badge-gradient"><img src="img/configuracao-icone.png"></span> Cadastrar
-    </button>
+      <span class="badge badge-gradient"><img src="../img/configuracao-icone.png"></span> Cadastrar
+      </button>
       
     </form>
   </div>
