@@ -28,7 +28,7 @@
           <input type="hidden" name="acao" value="logar">
 
           <div class="nav-item form-group">
-            <input class="btn btn-outline-warning mr-2" type="submit" name="" value="Entrar">
+            <input class="btn btn-warning mr-2" type="submit" name="" value="Entrar">
           </div>
 
         </form>
@@ -38,7 +38,7 @@
     </ul>
   </header>
 <!-- Logo -->
-
+<hr> <!-- Linha -->
 <div class="row">
     <div class="col-md-6">
       <br><br>
@@ -93,7 +93,7 @@
         </div>
 
         <div align="center" class="form-group col-md-12">
-          <input type="submit" class="btn btn-outline-warning col-md-6" id="btnCad" value="Inscreva - me">
+          <input type="submit" class="btn btn-warning col-md-6" id="btnCad" value="Inscreva - me">
         </div>
 
 
