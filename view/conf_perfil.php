@@ -26,7 +26,10 @@
 </header> 
 <hr><!-- Barra -->
 <!-- divisão -->
-<div  id="area" class="shadow-lg p-3 b-5 bg-light rounded">
+<div class="m-4 position-absolute">
+  <p><a href=""><strong>Voltar</strong></a></p>
+</div>
+<div  id="area" class="shadow-lg p-3 b-5 bg-light rounded mt-2">
   <div id="cabecalho">
      <div class="mt-2"><h1 align="center">Atualizar Informações Pessoais</h1></div>
   </div>
@@ -34,7 +37,7 @@
 <div class="col-6" id="lado_esquerdo">
   <div align="center">
     <img src="../img/perfil.png"><br>
-    <a class="mt-2" href="">Carregar nova foto</a>
+    <a class="mt-2" href=""><strong>Selecionar Foto</strong></a>
   </div>
 </div>
 
@@ -46,7 +49,7 @@
       <input class="form-control" type="text" name="nome">
       <label>E-mail:</label>
       <input class="form-control" type="email" name="email">
-      <label>Confirme E-mail:</label>
+      <label>Confirme e-mail:</label>
       <input class="form-control" type="email" name="conf_email">
       <label>Senha:</label>
       <input class="form-control" type="password" name="senha">
