@@ -63,7 +63,7 @@
     </div>
   </div>
   <hr>
-  <div class="col-sm-4 mt-2">
+  <!--div class="col-sm-4 mt-2">
     <div class="card">
       <div class="card-body text-center">
         <h5 class="card-title"><img src="img/interrogacao.ico"></h5>
