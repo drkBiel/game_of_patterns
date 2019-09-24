@@ -28,4 +28,6 @@
 	background-image: linear-gradient(to top, #75b3ff, white);
   }
 
-  
+  .text-warning{
+    color: #fa7202;
+  }
