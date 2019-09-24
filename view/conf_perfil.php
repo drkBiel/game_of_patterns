@@ -34,14 +34,14 @@
      <div class="mt-2"><h1 align="center">Atualizar Informações Pessoais</h1></div>
   </div>
 <div class="row">
-<div class="col-6" id="lado_esquerdo">
+<div class="col-md-6" id="lado_esquerdo">
   <div align="center">
     <img src="../img/perfil.png"><br>
     <a class="mt-2" href=""><strong>Selecionar Foto</strong></a>
   </div>
 </div>
 
-<div class="col-6" id="lado_direito">
+<div class="col-md-6" id="lado_direito">
 
   <div id="form">
     <form class="form-group">
