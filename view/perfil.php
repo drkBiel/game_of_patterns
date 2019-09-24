@@ -3,7 +3,7 @@
  ?>
 <body>
 <header class="bg-gradient"> 
-  <a href=""><img src="img/logo.jpg" width="160" height="60"  class="position-absolute"></a>
+  <a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid"></a>
 <ul class="nav justify-content-end form-inline">
   <li class="nav-item">
     <button type="button" class="btn btn-outline-info m-2">
@@ -20,6 +20,7 @@
   </li>
   </ul>
 </header> 
+
 <div class="col-md-12">
 <div class="row mt-4">
 <div class="col-md-3">
@@ -64,53 +65,35 @@
   </div>
   <hr>
   <div class="col-sm-4 mt-2">
-    <div class="card">
-      <div class="card-body text-center">
-        <h5 class="card-title"><img src="img/interrogacao.ico"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 mt-2">
-    <div class="card">
-      <div class="card-body text-center">
-        <h5 class="card-title"><img src="img/interrogacao.ico"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 mt-2">
+
+<div class="row">
+   <div class="col-3">
+     <img src="../img/perfil.png" alt="perfil" class="rounded img-fluid">
+   </div>  
+
+   <div class="col-9">
+     <h3 class="text-warning">Nome de usuario</h3>
+    <div class="col-4 border border-warning rounded">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><img src="img/interrogacao.ico"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="text-info">Pontuação no Ranking</h5>
+        <p><span class="badge badge-light">20</span></p>
       </div>
     </div>
-  </div-->
- 
+  </div>
+</div> <!-- col-9 -->
+</div> <!-- row -->
+<div class="row">
+  <div class="col-3">
+      
+  </div>
   
-</div>
-</div>
-</div>
-</div>
+  <div class="col-9">
+   <h3 class="text-warning">Minhas Badges</h3>
+  
 
-
-    
-<!--footer class="card text-center mt-2">
-
-  <div class="card-body">
-  	<h5 class="card-title text-warning">Aceitamos Sugestões</h5>
-  	<p>Toda contribuição será bem vinda</p>
-  	<a href="login.php" class="btn btn-light">Voltar Ao Topo</a>
   </div>
-  <div class="card-footer">
-  	Entrega do dia 18 de Setembro de 2019.
-  </div>
-</footer>
-</body-->
+</div>
  <?php 
    include "foot.php"; 
  ?>
