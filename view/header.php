@@ -9,9 +9,3 @@
   <link rel="stylesheet" type="text/css" href="estrutura/css/style.css">
 
 </head>
-
-<style>
-	div{
-		border: 1px solid black;
-	}
-</style>
