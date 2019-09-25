@@ -46,7 +46,7 @@
       <div class="col-md-4" id="lado_esquerdo">
         <div align="center">
           <img src="../img/perfil.png"><br>
-          <a class="mt-2" href=""><strong>Selecionar Foto</strong></a>
+          <a class="mt-2" href=""><strong>Selecionar Avatar</strong></a>
         </div>
       </div>
 
