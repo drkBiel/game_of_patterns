@@ -11,13 +11,12 @@
 
 </head>
 <body>
-<header> 
-<div class="bg-gradient col-md-12">
-<a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid text-hide"></a>
+<header class="bg-gradient col-md-12"> 
+<a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute"></a>
 <ul class="nav justify-content-end form-inline">
   <li class="nav-item">
     <button type="button" class="btn btn-info m-2">
-       Página Inicial<span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
+      Página Inicial <span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
     </button> 
 
     <button type="button" class="btn btn-info m-2">
@@ -25,12 +24,11 @@
     </button>
   </li>
 </ul>
-</div>
 </header> 
 <hr><!-- Barra -->
 <!-- divisão -->
 <div class="m-4 position-absolute">
-  <p><a href=""><strong>Voltar</strong></a></p>
+  <p><a href=""><strong><- Voltar</strong></a></p>
 </div>
 <div  id="area" class="shadow-lg p-3 b-5 bg-light rounded mt-2">
   <div id="cabecalho">
