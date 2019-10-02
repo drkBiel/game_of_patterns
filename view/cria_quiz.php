@@ -34,10 +34,17 @@
     </div>
     <h1 align="center">Criação do Quiz</h1> <!-- Título -->
     <div  id="area" class="shadow-lg p-3 b-5 bg-light rounded mt-2">
-      <div id="nomedoquiz">
-           
+      <div id="nomedoquiz" class="nav justify-content-center form-inline">
+           <div id="form_quiz">
+             Nome do Quiz: <input class="form-control" type="text">
+             Número de Questões: <input class="form-control" type="number">
+             <input type="button" class="btn btn-warning" value="Gerar">
+           </div>
       </div>  
-        
+      <div id="questao">
+         <h3>1 - Questão: </h3>
+         <textarea placeholder="Escreva o conteúdo da questão ..." id="content_question"></textarea>
+      </div>  
 
     </div> <!-- area -->
 
