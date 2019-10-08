@@ -13,6 +13,8 @@
         $tpUsuario = $_POST['tpUser'] ? $_POST['tpUser'] : ' ';
 
         $bd->cadastrarUsuario($conexao, $nome, $cdEmail, $tpUsuario, $cdSenha);
+
+        header('Location: ../index.php');
     }
     
     
@@ -21,16 +23,38 @@
         $lgEmail = $_POST['lgEmail'] ? $_POST['lgEmail'] : '';
         $lgSenha = $_POST['lgSenha'] ? $_POST['lgSenha'] : '';
         
-        $lgUsuario = $bd->selecionarUsuario($conexao, $lgEmail, $lgSenha);
+        $qtdUsuario = $bd->verificarUsuario($conexao, $lgEmail, $lgSenha);
 
         //Armazena o dado do tipo do Usuario que vai ser logado;
-        var_dump($lgUsuario);
+        if ($qtdUsuario == 1) {
+            session_start();
+            $_SESSION['email'] = $lgEmail;
+            
+            header('Location: ../view/conf_perfil.php');
+                                
+        }
         
-        echo $lgUsuario;
+    }else if($acao == "editar"){
+        $nome = $_POST['nome'] ? $_POST['nome'] : ' ';
+        $email = $_POST['email'] ? $_POST['email'] : ' ';
+        $senha = $_POST['senha'] ? $_POST['senha'] : ' ';
+        $id = $_POST['id'];
+
+        $bd->editarUsuario($conexao, $id, $nome, $email, $senha);
         
-        session_start();
-        $_SESSION['nome'] = $lgUsuario['nome'];
-                
+        $qtdUsuario = $bd->verificarUsuario($conexao, $email, $senha);
+
+
+        if ($qtdUsuario == 1) {
+            session_unset();
+            session_start();
+
+            $_SESSION['email'] = $email;
+            
+            header('Location: ../view/conf_perfil.php');
+                                
+        }
+        
         
     }
     
