@@ -1,7 +1,7 @@
 <?php
     class BD{
         public function conexao(){
-            $conexao = mysqli_connect("localhost","root","","db_gop");
+            $conexao = mysqli_connect("us-cdbr-iron-east-05.cleardb.net","b067d1527549e8","b7cf4a61","heroku_74583cad15e5fd0");
             if (!$conexao) {
                 $men_erro = "Erro ao conectar" . mysqli_connect_error();
                 die($men_erro);
@@ -14,7 +14,7 @@
         public function cadastrarUsuario($con, $nome, $email, $tipUsuario, $senha){
             $senha = md5($senha);
             
-            $consulta  = "INSERT INTO `usuario`( `nome`, `email`, `tipoUsuario`, `senha`, `pontuacao`, `tempo_total`) VALUES ('$nome','$email','$tipUsuario','$senha',0,0)";
+            $consulta  = "INSERT INTO `usuario`( `nome`, `email`, `tipo_Usuario`, `senha`, `pontuacao`, `tempo_total`, `id's_Badges`) VALUES ('$nome','$email','$tipUsuario','$senha',0,0,'')";
             $resultado =  mysqli_query($con,$consulta);
            
         }
@@ -63,7 +63,10 @@
             $resultado = mysqli_query($con, $comando);
                          
         }
-        
     }
 
+<<<<<<< HEAD
+
+=======
 ?>
+>>>>>>> ab4774d0691f27036a6fc622872cc1b1ece61210
