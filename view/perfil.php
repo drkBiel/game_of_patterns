@@ -36,19 +36,19 @@
             </button>
          </div>
          <div class="col-md-3"> <!-- Posição No Ranking -->
-          <div class="cd_perfil">
+          <div class="cd_perfil bg-light">
            <h6>Posição No Ranking</h6>
            <span class="badge badge-gradient"><p>12</p></span>
          </div>
          </div> 
          <div class="col-md-3"> <!-- Posição geral -->
-          <div class="cd_perfil">
+          <div class="cd_perfil bg-light">
            <h6>Posição Geral</h6>
            <span class="badge badge-gradient"><p>6</p></span>
          </div>
          </div>
          <div class="col-md-3"> <!-- Numero de quizzes -->
-          <div class="cd_perfil">
+          <div class="cd_perfil bg-light">
            <h6>Número de quizzes</h6>
            <span class="badge badge-gradient"><p>4</p></span>
          </div>
