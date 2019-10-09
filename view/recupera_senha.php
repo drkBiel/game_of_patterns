@@ -54,7 +54,7 @@
             <label>Confirme Senha:</label>
             <input class="form-control" type="password" name="conf_senha" id="conf_senha">
             <button type="submit" id="btnCad" class="btn btn-warning mt-2">
-            <span class="badge badge-gradient"><img src="../img/configuracao-icone.png"></span> Recuperar
+            Recuperar
             </button>
             
           </form>
