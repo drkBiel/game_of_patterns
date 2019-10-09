@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
     require "../bd/bd.php";
     $bd = new BD();
     $conexao = $bd->conexao();
@@ -24,14 +24,13 @@
         $lgSenha = $_POST['lgSenha'] ? $_POST['lgSenha'] : '';
         
         $qtdUsuario = $bd->verificarUsuario($conexao, $lgEmail, $lgSenha);
-
+       
         //Armazena o dado do tipo do Usuario que vai ser logado;
         if ($qtdUsuario == 1) {
             session_start();
             $_SESSION['email'] = $lgEmail;
-            
             header('Location: ../view/conf_perfil.php');
-                                
+                            
         }
         
     }else if($acao == "editar"){
@@ -39,12 +38,11 @@
         $email = $_POST['email'] ? $_POST['email'] : ' ';
         $senha = $_POST['senha'] ? $_POST['senha'] : ' ';
         $id = $_POST['id'];
-
+        
         $bd->editarUsuario($conexao, $id, $nome, $email, $senha);
         
         $qtdUsuario = $bd->verificarUsuario($conexao, $email, $senha);
-
-
+        
         if ($qtdUsuario == 1) {
             session_unset();
             session_start();
