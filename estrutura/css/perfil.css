@@ -46,7 +46,7 @@ hr{
  
 /* classes */ 
 .cd_perfil{
-    width: 80%;
+    width: 100%;
     margin-left: 10%;
     margin-top: 2px;
     margin-bottom: 10%;
@@ -58,3 +58,9 @@ hr{
 #btnCad{
   width: 100%;
 }
+
+#tl_perfil{
+  color: #75b3ff;
+}
+
+
