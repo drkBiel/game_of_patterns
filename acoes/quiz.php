@@ -29,10 +29,6 @@
             $qt++;
         }
 
-        var_dump($respQuestoes);
-
-        echo $qtsCorretas;
-
     }
 
 

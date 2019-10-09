@@ -29,8 +29,10 @@
         if ($qtdUsuario == 1) {
             session_start();
             $_SESSION['email'] = $lgEmail;
-            header('Location: ../view/conf_perfil.php');
+            header('Location: ../view/inicial.php');
                             
+        }else{
+            header('Location: ../index.php');
         }
         
     }else if($acao == "editar"){
