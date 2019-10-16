@@ -65,6 +65,10 @@
                <label>e)</label>
                <input class="form-control" type="text" name="">
              </form>
+           </div> <!-- col 6 -->
+           <div class="col-md-6">
+             <label>Informe a alternativa correta:</label>
+             <input id="alt_c"  type="text" placeholder="a - e" name="">
            </div>
          </div>
       </div>

@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 /* Títulos */
 h1,h3{
     font-family: 'Josefin Sans', sans-serif;
@@ -92,6 +92,12 @@ h1,h3{
 
   }
 
-  #num_q{
+#num_q{
   width: 50px;
 } 
+
+#alt_c{
+  width: 70px;
+  border: solid 1px black;
+  border-radius: 5px;
+}
