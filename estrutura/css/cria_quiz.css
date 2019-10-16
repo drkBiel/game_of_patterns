@@ -81,3 +81,17 @@ h1,h3{
     font-size: 16px;
     resize: none;
   }
+
+#qtd_questao{
+    
+     width: 80%;
+     margin-left: 10%;
+     border: 1px solid #75b3ff;
+     border-radius: 10px;
+     height: auto;
+
+  }
+
+  #num_q{
+  width: 50px;
+} 

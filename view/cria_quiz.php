@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <link rel="shortcut icon" href="../img/favicon.png">
       <link rel="stylesheet" type="text/css" href="../estrutura/css/cria_quiz.css">
+    
 
     </head>
     <body>
@@ -45,8 +46,31 @@
          <h3>1 - Questão: </h3>
          <textarea placeholder="Escreva o conteúdo da questão ..." id="content_question"></textarea>
       </div>  
-
-    </div> <!-- area -->
+     <!-- Quantidade de alternativas -->
+      <div class="mt-2 p-4" id="qtd_questao">
+         <div class="row">
+           <div class="col-md-6">
+             <label>Número de Questões:</label>
+             <input id="num_q" class="mt-2" type="number" name="">
+             <input type="button" class="btn btn-warning" value="Gerar">
+             <form class="form-group">
+               <label>a)</label>
+               <input class="form-control" type="text" name="">
+               <label>b)</label>
+               <input class="form-control" type="text" name="">
+               <label>c)</label>
+               <input class="form-control" type="text" name="">
+               <label>d)</label>
+               <input class="form-control" type="text" name="">
+               <label>e)</label>
+               <input class="form-control" type="text" name="">
+             </form>
+           </div>
+         </div>
+      </div>
+      </div> <!-- area -->
+      
+   
 
     <footer class="card text-center">
       <div class="card-footer">
