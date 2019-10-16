@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+/* Títulos */
+h1,h3{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1,h6{
+ color: #fa7202;
+}
+h3{
+ color: #75b3ff;
+}
+
+/* Cores dos botões bootstrap */
+.jumbotron{
+	background-color: #c8c8c8;
+}
+  
+.btn-outline-warning{
+	  color: #fa7202;
+	  border-color: #fa7202;
+}
+  
+.btn-warning{
+	  color: white;
+    background-color: #fa7202;
+}
+
+.btn-info{
+    color: white;
+    background-color: #75b3ff;
+}
+
+.card-footer{
+  background-image: linear-gradient(to top, #75b3ff, white);
+}
+
+/* Tags */ 
+label{
+	  color: #fa7202;
+}
+  
+hr{
+  border-color: #75b3ff; 
+}
+ 
+/* Ids */ 
+#area{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2px;
+    margin-bottom: 10%;
+}
+
+#quadro{
+  padding: 50px 50px;
+  border: solid 1px #75b3ff;
+  border-radius: 10px;
+  color: #75b3ff;
+}
+
+#comentario{
+    width: 90%;
+    height: 100px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #75b3ff;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+  }
