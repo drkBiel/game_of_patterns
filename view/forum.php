@@ -9,6 +9,8 @@
       <link rel="shortcut icon" href="../img/favicon.png">
       <link rel="stylesheet" type="text/css" href="../estrutura/css/forum.css">
 
+    
+
     </head>
     <body>
     <header> 
@@ -23,8 +25,8 @@
           </button>
         </a>
 
-        <a href="../view/perfil.php">
-						<button type="button" class="btn btn-info m-2">
+        <a href="../view/perfil.php" id="btn_add_coment">
+						<button  type="button" class="btn btn-info m-2">
 							Usuário<span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span> 
 						</button>
 				</a>
@@ -39,14 +41,24 @@
     </div>
      <h1 align="center">Quiz</h1>
      <h6 align="center">Descrição do quiz</h6>
-    <div  id="area" class="shadow-lg p-3 b-5 bg-light rounded mt-2">
-      <div id="quadro">
-        <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span><label>Renan Lima</label>
-        <div placeholder="Escreva o conteúdo da questão ..." id="comentario"><p>Olá, gostaria de deixar aqui este link para quem deseja saber mais sobre o adapter</p></div>
-         <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span><label>Renan Lima</label>
-        <div placeholder="Escreva o conteúdo da questão ..." id="comentario"><p>Olá, gostaria de deixar aqui este link para quem deseja saber mais sobre o adapter</p></div>
-         <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span><label>Renan Lima</label>
-        <div placeholder="Escreva o conteúdo da questão ..." id="comentario"><p>Olá, gostaria de deixar aqui este link para quem deseja saber mais sobre o adapter</p></div>
+    <div  id="area">
+
+    <div id="add_coment"><!-- Adicionar comentário -->
+         <a href=""> 
+            <button type="button" class="btn btn-info m-2">
+            Adicionar Comentário
+            </button>
+          </a>
+      </div>
+    
+    <div id="quadro">
+     
+        <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span><label class="label_quiz">Renan Lima</label>
+        <div placeholder="Escreva o conteúdo da questão ..." id="comentario"><p class="comentario">Olá, gostaria de deixar aqui este link para quem deseja saber mais sobre o adapter</p></div>
+         <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span><label class="label_quiz">Renan Lima</label>
+        <div placeholder="Escreva o conteúdo da questão ..." id="comentario"><p class="comentario">Olá, gostaria de deixar aqui este link para quem deseja saber mais sobre o adapter</p></div>
+         <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span><label class="label_quiz">Renan Lima</label>
+        <div placeholder="Escreva o conteúdo da questão ..." id="comentario"><p class="comentario">Olá, gostaria de deixar aqui este link para quem deseja saber mais sobre o adapter</p></div>
       </div>
 
     </div> <!-- area -->
