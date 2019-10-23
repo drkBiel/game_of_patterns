@@ -50,9 +50,6 @@
       <div class="mt-2 p-4" id="qtd_questao">
          <div class="row">
            <div class="col-md-6">
-             <label>Número de Alternativas:</label>
-             <input id="num_q" class="mt-2" type="number" name="">
-             <input type="button" class="btn btn-warning" value="Gerar">
              <form class="form-group">
                <label>a)</label>
                <input class="form-control" type="text" name="">
@@ -68,7 +65,7 @@
            </div> <!-- col 6 -->
            <div class="col-md-6">
              <label>Informe a alternativa correta:</label>
-             <input id="alt_c"  type="text" placeholder="a - e" name="">
+             <input id="alt_c"  type="text" placeholder=" a - e" name="">
            </div>
          </div>
       </div>
