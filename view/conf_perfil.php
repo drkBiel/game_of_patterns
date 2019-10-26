@@ -28,6 +28,12 @@
                                 Página Inicial<span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
                             </button>
                         </a>
+                        
+                        <a href="ranking.php">
+                            <button type="button" class="btn btn-info m-2">
+                                Ranking <span class="badge badge-gradient"><img src="../img/ranking.png"></span> 
+                            </button>
+                        </a>
 
                         <a href="../view/perfil.php">
                             <button type="button" class="btn btn-info m-2">
