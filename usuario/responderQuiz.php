@@ -206,7 +206,7 @@
     }
 
     });
-            $("#btnVoltar").click(function(){
+    $("#btnVoltar").click(function(){
     if (questao > 1){
     $("#Q" + questao).hide();
             $("#Q" + (questao - 1)).show();

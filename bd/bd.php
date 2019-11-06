@@ -44,6 +44,7 @@ class BD {
             $usuario[$i]['email'] = $listUsuarios['email'];
             $usuario[$i]['pont'] = $listUsuarios['pontuacao'];
             $usuario[$i]['tempo'] = $listUsuarios['tempo_Total'];
+            $usuario[$i]['tpUser'] = $listUsuarios['tipo_Usuario'];
 
 
             $i++;

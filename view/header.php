@@ -15,31 +15,49 @@
 
   </head>
   <body>
-    <header> 
-      <div class="bg-gradient col-md-12" style="margin-top:0%;">
-        <a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid text-hide" ></a>
-        <ul class="nav justify-content-end form-inline">
-          <li class="nav-item">
-            <a href="inicial.php">
-              <button type="button" class="btn btn-info m-2" style="margin-top:1%;">
-                Página Inicial<span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
-              </button>
-            </a>
-
-            <a href="ranking.php">
-              <button type="button" class="btn btn-info m-2">
-                  Ranking <span class="badge badge-gradient"><img src="../img/ranking.png"></span> 
+    <header>
+      <form action="../acoes/usuario.php" method="post"> 
+        <div class="bg-gradient col-md-12" style="margin-top:0%;">
+          <a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid text-hide" ></a>
+          <ul class="nav justify-content-end form-inline">
+            <li class="nav-item">
+              <a href="inicial.php">
+                <button type="button" class="btn btn-info m-2" style="margin-top:1%;">
+                  Página Inicial<span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
                 </button>
-            </a>
+              </a>
 
-            <a href="../view/perfil.php">
-              <button type="button" class="btn btn-info m-2">
-                <?php echo $usuario[0]['nome']; ?> <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span> 
+              <?php if($usuario[0]['tpUser'] == 2) { ?>
+                <a href="../view/cria_quiz.php">
+                  <button type="button" class="btn btn-info m-2">
+                    Criar quiz <span class="badge badge-gradient"><img src="../img/icons8-adicionar.png"></span> 
+                  </button>
+                </a>
+              <?php } ?>
+
+              <a href="ranking.php">
+                <button type="button" class="btn btn-info m-2">
+                    Ranking <span class="badge badge-gradient"><img src="../img/ranking.png"></span> 
+                  </button>
+              </a>
+
+              <a href="../view/perfil.php">
+                <button type="button" class="btn btn-info m-2">
+                  <?php echo $usuario[0]['nome']; ?> <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span> 
+                </button>
+              </a>
+         
+              <button type="submit" class="btn btn-info m-2">
+                Sair <span class="badge badge-gradient"><img src="../img/icons8-sair.png"></span> 
               </button>
-            </a>
-          </li>
-        </ul>
-      </div>
+              <input type="hidden" name="acao" value="sair">
+                
+              
+              
+            </li>
+          </ul>
+        </div>
+      </form>
     </header>
     <hr><!-- Barra -->
 
