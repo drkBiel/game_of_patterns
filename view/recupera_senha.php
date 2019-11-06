@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Game Of Partterns</title>
+        <?php require 'header.php'; ?>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -10,29 +11,7 @@
 
     </head>
     <body>
-        <header> 
-            <div class="bg-gradient col-md-12">
-                <a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid text-hide"></a>
-                <ul class="nav justify-content-end form-inline">
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-info m-2">
-                            Página Inicial<span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
-                        </button>
 
-                        <a href="ranking.php">
-                            <button type="button" class="btn btn-info m-2">
-                                Ranking <span class="badge badge-gradient"><img src="../img/ranking.png"></span> 
-                            </button>
-                        </a>
-
-                        <button type="button" class="btn btn-info m-2">
-                            Usuário <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span> 
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </header> 
-        <hr><!-- Barra -->
         <!-- divisão -->
         <div class="m-4 position-absolute">
             <p><a href=""><strong>Voltar</strong></a></p>

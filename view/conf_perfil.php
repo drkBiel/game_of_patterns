@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <?php
-        require '../bd/bd.php';
-        $bd = new BD();
-        session_start();
-        $conexao = $bd->conexao();
-        $usuario = $bd->selecionarUsuario($conexao, $_SESSION['email']);
-        ?>
+        
+        <?php require 'header.php'; ?>
+
         <title>Game Of Partterns</title>
         <meta charset="ISO-8859-15">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,34 +13,7 @@
 
     </head>
     <body>
-        <header> 
-            <div class="bg-gradient col-md-12">
-                <a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid text-hide"></a>
-                <ul class="nav justify-content-end form-inline">
-                    <li class="nav-item">
-
-                        <a href="inicial.php">
-                            <button type="button" class="btn btn-info m-2">
-                                Página Inicial<span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
-                            </button>
-                        </a>
-                        
-                        <a href="ranking.php">
-                            <button type="button" class="btn btn-info m-2">
-                                Ranking <span class="badge badge-gradient"><img src="../img/ranking.png"></span> 
-                            </button>
-                        </a>
-
-                        <a href="../view/perfil.php">
-                            <button type="button" class="btn btn-info m-2">
-                                <?php echo $usuario[0]['nome']; ?> <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span> 
-                            </button>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </header> 
-        <hr><!-- Barra -->
+         
         <!-- divisão -->
         <div class="m-4 position-absolute">
             <p><a href=""><strong>Voltar</strong></a></p>

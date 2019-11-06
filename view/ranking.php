@@ -2,15 +2,13 @@
 <html lang="pt-br">
     <head>
         <?php
-        require "../bd/bd.php";
+        require "header.php";
         $bd = new BD();
         $conexao = $bd->conexao();
 
         $quiz = $bd->selecionarQuizzes($conexao);
         $qtdQuizzes = count($quiz);
 
-        session_start();
-        $usuario = $bd->selecionarUsuario($conexao, $_SESSION['email']);
         $hqr = $bd->selecionarHQRUsuario($conexao, $usuario[0]['id']);
         ?>
         <title>Ranking</title>
@@ -22,34 +20,6 @@
 
     </head>
     <body>
-        <header> 
-            <div class="bg-gradient col-md-12">
-                <a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid text-hide"></a>
-                <ul class="nav justify-content-end form-inline">
-                    <li class="nav-item">
-                        
-                        <a href="inicial.php">
-                            <button type="button" class="btn btn-info m-2">
-                                Página Inicial<span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
-                            </button>
-                        </a>
-                        
-                        <a href="ranking.php">
-                            <button type="button" class="btn btn-info m-2">
-                                Ranking <span class="badge badge-gradient"><img src="../img/ranking.png"></span> 
-                            </button>
-                        </a>
-
-                        <a href="../view/perfil.php">
-                            <button type="button" class="btn btn-info m-2">
-                                Usuário<span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span> 
-                            </button>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </header> 
-        <hr><!-- Barra -->
         <!-- divisão -->
         <div class="m-4 position-absolute">
             <p><a href=""><strong>Voltar</strong></a></p>

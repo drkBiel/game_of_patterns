@@ -61,6 +61,7 @@
                 </ul>
             </div>
         </header>
+        <hr>
 
         <form action="../acoes/quiz.php" method="post">
             <div class="container" align="justify" style="margin-top: 5%;">
