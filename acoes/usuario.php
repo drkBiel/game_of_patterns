@@ -1,4 +1,5 @@
-﻿<?php 
+﻿<?php
+    ob_start();
     require "../bd/bd.php";
     $bd = new BD();
     $conexao = $bd->conexao();
@@ -15,12 +16,14 @@
         $bd->cadastrarUsuario($conexao, $nome, $cdEmail, $tpUsuario, $cdSenha);
 
         header('Location: ../index.php');
+        end();
     }
 
     else if ($acao == "sair") {
         session_start();
         session_destroy();
         header('Location: ../index.php');
+        end();
     }
     
     else if($acao == "logar"){
@@ -38,6 +41,7 @@
                             
         }else{
             header('Location: ../index.php');
+            end();
         }
         
     }else if($acao == "editar"){
@@ -57,12 +61,13 @@
             $_SESSION['email'] = $email;
             
             header('Location: ../view/conf_perfil.php');
+            end();
                                 
         }
         
         
     }
-    
+    ob_end_flush();
 
 
 ?>
