@@ -31,6 +31,7 @@
         $lgEmail = $_POST['lgEmail'] ? $_POST['lgEmail'] : '';
         $lgSenha = $_POST['lgSenha'] ? $_POST['lgSenha'] : '';
         
+        echo "Tentando logar";
         $qtdUsuario = $bd->verificarUsuario($conexao, $lgEmail, $lgSenha);
        
         //Armazena o dado do tipo do Usuario que vai ser logado;
