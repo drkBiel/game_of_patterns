@@ -37,9 +37,13 @@
         if ($qtdUsuario == 1) {
             session_start();
             $_SESSION['email'] = $lgEmail;
+            error_reporting(E_ALL);
+            ini_set("display_errors", 1);
             header('Location: ../view/inicial.php');
                             
         }else{
+            error_reporting(E_ALL);
+            ini_set("display_errors", 1);
             header('Location: ../index.php');
             end();
         }
