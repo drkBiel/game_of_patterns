@@ -4,6 +4,7 @@
     require "../bd/bd.php";
     echo "1.1 - Erro";
     $bd = new BD();
+    echo "1.1.1 - Erro";
     $conexao = $bd->conexao();
     echo "1.2 - Erro";
     
