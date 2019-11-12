@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     ob_start();
     require "../bd/bd.php";
     $bd = new BD();
