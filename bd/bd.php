@@ -3,14 +3,23 @@
 class BD {
 
     public function conexao() {
+        echo "2.1 - Erro";
         mb_internal_encoding("UTF-8");
+        echo "2.2 - Erro";
         mb_http_output("iso-8859-1");
+        echo "2.3 - Erro";
         $conexao = mysqli_connect("localhost", "root", "", "db_gop");
+        echo "2.4 - Erro";
         if (!$conexao) {
+            echo "2.5 - Erro";
             $men_erro = "Erro ao conectar" . mysqli_connect_error();
+            echo "2.6 - Erro";
             die($men_erro);
+            echo "2.7 - Erro";
         } else {
+            echo "2.8 - Erro";
             return $conexao;
+            echo "2.9 - Erro";
         }
     }
 
