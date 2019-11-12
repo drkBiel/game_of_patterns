@@ -28,7 +28,7 @@
           <input type="hidden" name="acao" value="logar">
 
           <div class="nav-item form-group">
-            <input class="btn btn-warning mr-2" type="submit" name="" value="Entrar">
+            <input class="btn btn-warning mr-2" type="submit" name="" value="Entrar e Sair">
           </div>
 
         </form>
