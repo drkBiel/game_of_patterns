@@ -1,5 +1,6 @@
-<?php
-    ob_start();
+<?php 
+
+
     require "../bd/bd.php";
     $bd = new BD();
     $conexao = $bd->conexao();
@@ -15,6 +16,7 @@
 
         $bd->cadastrarUsuario($conexao, $nome, $cdEmail, $tpUsuario, $cdSenha);
 
+        //echo '<scritp>window.location.href("index.php")</script>';
         header('Location: ../index.php');
         end();
     }
@@ -22,8 +24,9 @@
     else if ($acao == "sair") {
         session_start();
         session_destroy();
-        header('Location: ../index.php');
+        echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
         end();
+        
     }
     
     else if($acao == "logar"){
@@ -31,22 +34,18 @@
         $lgEmail = $_POST['lgEmail'] ? $_POST['lgEmail'] : '';
         $lgSenha = $_POST['lgSenha'] ? $_POST['lgSenha'] : '';
         
-        echo "Tentando logar";
         $qtdUsuario = $bd->verificarUsuario($conexao, $lgEmail, $lgSenha);
        
         //Armazena o dado do tipo do Usuario que vai ser logado;
         if ($qtdUsuario == 1) {
             session_start();
             $_SESSION['email'] = $lgEmail;
-            error_reporting(E_ALL);
-            ini_set("display_errors", 1);
-            header('Location: ../view/inicial.php');
-                            
+            echo "<script language= 'JavaScript'> location.href='../view/inicial.php' </script>";
+            end();                
         }else{
-            error_reporting(E_ALL);
-            ini_set("display_errors", 1);
-            header('Location: ../index.php');
+            echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
             end();
+            
         }
         
     }else if($acao == "editar"){
@@ -65,15 +64,15 @@
 
             $_SESSION['email'] = $email;
             
+            
+            echo "<script language= 'JavaScript'> location.href='../view/conf_perfil.php' </script>";
             header('Location: ../view/conf_perfil.php');
             end();
-                                
         }
         
         
     }
-    ob_end_flush();
+        
 
 
 ?>
-
