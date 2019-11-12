@@ -2,10 +2,13 @@
     ob_start();
     echo "1 - Erro";
     require "../bd/bd.php";
+    echo "1.1 - Erro";
     $bd = new BD();
     $conexao = $bd->conexao();
+    echo "1.2 - Erro";
     
     $acao = $_POST['acao'];
+    echo "1.3 - Erro";
 
     if($acao == "cadastrar"){
         echo "2 - Erro";
