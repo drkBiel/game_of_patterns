@@ -3,11 +3,6 @@
 class BD {
 
     public function conexao() {
-        echo "2.1 - Erro";
-
-        echo "2.2 - Erro";
-        mb_http_output("iso-8859-1");
-        echo "2.3 - Erro";
         $conexao = mysqli_connect("localhost", "root", "", "db_gop");
         echo "2.4 - Erro";
         if (!$conexao) {
