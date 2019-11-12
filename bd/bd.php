@@ -3,8 +3,7 @@
 class BD {
 
     public function conexao() {
-        $conexao = mysqli_connect("localhost", "root", "", "db_gop");
-        echo "2.4 - Erro";
+        $conexao = mysqli_connect("us-cdbr-iron-east-05.cleardb.net","b067d1527549e8","b7cf4a61","heroku_74583cad15e5fd0");        echo "2.4 - Erro";
         if (!$conexao) {
             echo "2.5 - Erro";
             $men_erro = "Erro ao conectar" . mysqli_connect_error();
