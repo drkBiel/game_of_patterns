@@ -90,7 +90,6 @@ class BD {
         $usuario = array();
         $listUsuario = array();
 
-        echo "C1: ".$consulta;
         $i = 0;
 
         while ($listUsuarios = mysqli_fetch_array($resultado)) {
@@ -102,26 +101,29 @@ class BD {
         $comando = "SELECT * FROM historico_qr WHERE id_Quiz = '$idQuiz' AND id_User = '$idUsuario'";
         $resultado = mysqli_query($con, $comando);
 
-        echo "\nC2: ".$consulta;
-
         $qtdQuizzes = mysqli_num_rows($resultado);
+        
+        //Insere o novo registro na tabela do histórico
+        $comando = "INSERT INTO `historico_qr`(`id_User`, `id_Quiz`, `tempo`, `pontuacao`) VALUES ('$idUsuario','$idQuiz','$tempo','$pontuacao')";
+        $resultado = mysqli_query($con, $comando);
 
-        //Caso não tenha nenhum registro no histórico
-        if ($qtdQuizzes < 1) {
-            $comando = "INSERT INTO `historico_qr`(`id_User`, `id_Quiz`, `tempo`, `pontuacao`) VALUES ('$idUsuario','$idQuiz','$tempo','$pontuacao')";
-            $resultado = mysqli_query($con, $comando);
-            echo $comando;
+        //Verifica se a pontuação obtida é maior do que já possui
+        if($pontuacao > $usuario[0]['pontuacao']){
+            //Alteração da pontuação total
+            $usuario[0]['pontuacao'] = (float) $usuario[0]['pontuacao'];
+            $pont = $pontuacao - $usuario[0]['pontuacao'];
+            $usuario[0]['pontuacao'] += $pont;
+            $pont = $usuario[0]['pontuacao'];
 
-            $pontuacao += (float) $usuario[0]['pontuacao'];
-            $tempo += (float) $usuario[0]['tempo'];
+            //Alteração do tempo total
+            $usuario[0]['tempo'] = (float) $usuario[0]['tempo'];
+            $temp = $pontuacao - $usuario[0]['tempo'];
+            $usuario[0]['tempo'] += $temp;
+            $temp = $usuario[0]['tempo'];
 
-            $comando = "UPDATE `usuario` SET pontuacao='$pontuacao', tempo_Total='$tempo' WHERE id_User = $idUsuario";
+            $comando = "UPDATE `usuario` SET pontuacao='$pont', tempo_Total='$temp' WHERE id_User = $idUsuario";
             $resultado = mysqli_query($con, $comando);
         } 
-        //Caso exista algum registro
-        else {
-
-        }
     }
 
     public function selecionarHQR($con, $idQuiz) {

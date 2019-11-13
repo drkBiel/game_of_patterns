@@ -9,6 +9,15 @@
         $usuario = $bd->selecionarUsuario($conexao, $_SESSION['email']);
         $quiz = $bd->selecionarQuiz($conexao, $_GET['idQuiz']);
         $hqr = $bd->selecionarHQRUsuarioQuiz($conexao, $quiz[0]['id'], $usuario[0]['id']);
+
+        $pontuacoes = array();
+        $tempos = array();
+
+        for ($i=0; $i < count($hqr); $i++) { 
+            $pontuacoes[$i] = $hqr[$i]['pontuacao'];
+            $tempos[$i] = $hqr[$i]['tempo'];
+        }
+
         ?>
 
         <meta charset="UTF-8">
@@ -60,6 +69,7 @@
                 </ul>
             </div>
         </header>
+        <hr>
 
         <form action="../view/inicial.php" method="post">
             <div class="container" align="center" style="margin-top: 10%;">
@@ -80,8 +90,23 @@
                                 <img src="../img/teste-passado.png">
                                 <?php echo "<h4>" . $quiz[0]['nome'] . " finalizado</h4>"; ?> 
                                 <br>
-                                Tempo: <h4 style="margin-top: 2%;"> <?php echo $hqr[0]['tempo'] ?> minutos </h4>
-                                Pontuação: <h4 style="margin-top: 2%;"> <?php echo $hqr[0]['pontuacao'] ?> </h4>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 align="center"> Maior </h4>
+                                        <h5 style="margin-top: 10%;"> Tempo:  <?php echo min($tempos); ?> minutos </h5>
+                                        <h5 style="margin-top: 2%;"> Pontuação: <?php echo max($pontuacoes); ?> </h5>        
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <h4 align="center"> Obtido </h4>
+                                        <h5 style="margin-top: 10%;"> Tempo:  <?php echo $tempos[count($tempos)-1]; ?> minutos </h5>
+                                        <h5 style="margin-top: 2%; margin-bottom: 20%;"> Pontuação: <?php echo $pontuacoes[count($pontuacoes)-1]; ?> </h5>        
+                                    </div>
+                                    <br>
+                                </div>
+                                
+                                
                             </div>
                         </div>
                     </div>
