@@ -7,6 +7,7 @@
             $quiz = $bd->selecionarQuizzes($conexao);
             $qtdQuizzes = count($quiz);
             $hqr = $bd->selecionarHQRUsuario($conexao, $usuario[0]['id']);
+            $qPercorridos = array();
         ?>
        
         <title>Game Of Partterns</title>
@@ -64,30 +65,34 @@
             <div class="row"> <!-- Linha de cards -->
 
                 <?php
-                for ($i = 0; $i < count($hqr); $i++) {
-                    $quiz = $bd->selecionarQuiz($conexao, $hqr[$i]['idQuiz']);
-                    ?>
+                    for ($i = 0; $i < count($hqr); $i++) {
+                        $quiz = $bd->selecionarQuiz($conexao, $hqr[$i]['idQuiz']);
+                        
+                        if (in_array($quiz, $qPercorridos)){ }
+                        
+                        else{   $qPercorridos[$i] = $quiz; ?>
+                        
+                            <div class="col-md-3">
+                                <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
+                                    <div class="card-body" style="position: relative;">
 
-                    <div class="col-md-3">
-                        <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
-                            <div class="card-body" style="position: relative;">
+                                        <h5 class="card-title"> <?php echo $quiz[0]['nome']; ?></h5>
+                                        <p class="card-text"><?php echo $quiz[0]['descricao']; ?></p>
+                                        <input type='hidden' name='idQuiz' value="<?php echo $quiz[$i]['id'] ?>">
+                                        <input type='hidden' name='nomeQuiz' value="<?php echo $quiz[$i]['nome'] ?>">
 
-                                <h5 class="card-title"> <?php echo $quiz[0]['nome']; ?></h5>
-                                <p class="card-text"><?php echo $quiz[0]['descricao']; ?></p>
-                                <input type='hidden' name='idQuiz' value="<?php echo $quiz[$i]['id'] ?>">
-                                <input type='hidden' name='nomeQuiz' value="<?php echo $quiz[$i]['nome'] ?>">
-
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col align-self-start"> <button href='#' type='submit' class='btn btn-warning'> Iniciar</button> </div>
-                                        <div class="col align-self-end"> <a href='#' class='btn btn-info'> Forum</a> </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col align-self-start"> <button href='#' type='submit' class='btn btn-warning'> Iniciar</button> </div>
+                                                <div class="col align-self-end"> <a href='#' class='btn btn-info'> Forum</a> </div>
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
-
-                        </div>
-                    </div>
-                <?php } ?>
+                <?php   }
+                    }?>
 
                 <?php if ($i == 0) { ?> <h4 style="color: #fa7202;" class="text-center" align="center"> &nbsp&nbsp&nbsp&nbsp Nenhum quiz repondido </h4> <?php } ?>
             </div>
