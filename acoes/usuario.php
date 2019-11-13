@@ -14,8 +14,8 @@
         $tpUsuario = $_POST['tpUser'] ? $_POST['tpUser'] : ' ';
 
         $bd->cadastrarUsuario($conexao, $nome, $cdEmail, $tpUsuario, $cdSenha);
-
-        header('Location: ../index.php');
+        echo "<script language= 'JavaScript'> alert('Cadastro realizado com sucesso') </script>";
+        echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
         end();
     }
 
@@ -37,11 +37,13 @@
         if ($qtdUsuario == 1) {
             session_start();
             $_SESSION['email'] = $lgEmail;
+            
             header('Location: ../view/inicial.php');
+            end();
                             
         }else{
-            echo '<script> alert("ola"); </script>';
-            header('Location: ../index.php');
+            echo "<script language= 'JavaScript'> alert('Login e/ou senha incorretos!') </script>";
+            echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
             end();
         }
         
@@ -61,14 +63,13 @@
 
             $_SESSION['email'] = $email;
             
-            header('Location: ../view/conf_perfil.php');
+            echo "<script language= 'JavaScript'> alert('Dados alterados com sucesso') </script>";
+            echo "<script language= 'JavaScript'> location.href='../view/conf_perfil.php' </script>";
             end();
                                 
         }
         
         
     }
-    ob_end_flush();
-
 
 ?>
