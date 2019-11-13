@@ -90,6 +90,7 @@ class BD {
         $usuario = array();
         $listUsuario = array();
 
+        echo "C1: ".$consulta;
         $i = 0;
 
         while ($listUsuarios = mysqli_fetch_array($resultado)) {
@@ -101,19 +102,25 @@ class BD {
         $comando = "SELECT * FROM historico_qr WHERE id_Quiz = '$idQuiz' AND id_User = '$idUsuario'";
         $resultado = mysqli_query($con, $comando);
 
+        echo "\nC2: ".$consulta;
+
         $qtdQuizzes = mysqli_num_rows($resultado);
 
+        //Caso não tenha nenhum registro no histórico
         if ($qtdQuizzes < 1) {
             $comando = "INSERT INTO `historico_qr`(`id_User`, `id_Quiz`, `tempo`, `pontuacao`) VALUES ('$idUsuario','$idQuiz','$tempo','$pontuacao')";
             $resultado = mysqli_query($con, $comando);
+            echo $comando;
 
             $pontuacao += (float) $usuario[0]['pontuacao'];
             $tempo += (float) $usuario[0]['tempo'];
 
             $comando = "UPDATE `usuario` SET pontuacao='$pontuacao', tempo_Total='$tempo' WHERE id_User = $idUsuario";
             $resultado = mysqli_query($con, $comando);
-        } else {
-            
+        } 
+        //Caso exista algum registro
+        else {
+
         }
     }
 

@@ -21,7 +21,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="../estrutura/js/cronometro.js"></script>
 
         <title>Responder Quiz</title>
 
@@ -122,56 +121,3 @@
 
 </html>
 
-<script>
-            $(document).ready(function(){
-    let questao = 1;
-            $("#btnConcluir").hide();
-            for (let index = 2; index <= <?php echo $qtdQuestoes; ?>; index++) {
-    $("#Q" + index).hide();
-    }
-
-    $("#btnProximo").click(function(){
-    $("#Q" + questao).hide();
-            $("#Q" + (questao + 1)).show();
-            questao++;
-            if (questao == <?php echo $qtdQuestoes; ?>){
-    $("#btnProximo").hide();
-            $("#btnConcluir").show();
-    }
-
-    });
-            $("#btnVoltar").click(function(){
-    if (questao > 1){
-    $("#Q" + questao).hide();
-            $("#Q" + (questao - 1)).show();
-            questao--;
-            if (questao == <?php echo (string) ($qtdQuestoes - 1); ?>){
-    $("#btnProximo").show();
-            $("#btnConcluir").hide();
-    }
-    }
-    });
-            $('#btnConcluir').click(function(event){
-    alert(questao)
-            let mensagem = "";
-            let respostas = "";
-            for (let i = 1; i <= questao; i++){
-    if (i != questao){
-    respostas += i + " - " + $("input[name='nmQ" + i + "']:checked").val() + "\n";
-    } else{
-    respostas += i + " - " + $("input[name='nmQ" + i + "']:checked").val() + "\n";
-    }
-    }
-    opcao = confirm("Confirmar respostas: \n" + respostas);
-            if (opcao == false){
-    event.preventDefault();
-            tempo();
-    }
-
-    parar();
-    });
-            $('#alternativas').on('click', function() {
-    $('#alternativas').toggleClass('qSelecionada');
-    });
-    });
-</script>

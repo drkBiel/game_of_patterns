@@ -72,7 +72,7 @@
                         <div class="col" align="center">
                             <div class="card-header">
                                 <?php echo "<h4>" . $_POST['nomeQuiz'] . "</h4>"; ?>
-                                <h4 style="margin-top: 2%;" id="cronometro"><label id="hora"> 00:</label><label id="minuto">00:</label><label id="segundo">00 </label></h4>
+                                <h4 style="margin-top: 2%;" id="cronometro"><label id="hora" name="hora"> 00:</label><label id="minuto" name="minuto">00:</label><label id="segundo" name="segundo">00 </label></h4>
                                 <input type="hidden" id="tempo" name="tempo" value="">
                             </div>
                         </div>
@@ -189,56 +189,65 @@
 </html>
 
 <script>
-            $(document).ready(function(){
-    let questao = 1;
-            $("#btnConcluir").hide();
-            for (let index = 2; index <= <?php echo $qtdQuestoes; ?>; index++) {
-    $("#Q" + index).hide();
-    }
+    $(document).ready(function(){
+        let questao = 1;
+        $("#btnConcluir").hide();
+        
+        for (let index = 2; index <= <?php echo $qtdQuestoes; ?>; index++) {
+            $("#Q" + index).hide();
+        }
 
-    $("#btnProximo").click(function(){
-    $("#Q" + questao).hide();
+        $("#btnProximo").click(function(){
+            $("#Q" + questao).hide();
             $("#Q" + (questao + 1)).show();
             questao++;
+            
             if (questao == <?php echo $qtdQuestoes; ?>){
-    $("#btnProximo").hide();
-            $("#btnConcluir").show();
-    }
+                $("#btnProximo").hide();
+                $("#btnConcluir").show();
+            }
 
-    });
-    $("#btnVoltar").click(function(){
-    if (questao > 1){
-    $("#Q" + questao).hide();
-            $("#Q" + (questao - 1)).show();
-            questao--;
-            if (questao == <?php echo (string) ($qtdQuestoes - 1); ?>){
-    $("#btnProximo").show();
-            $("#btnConcluir").hide();
-    }
-    }
-    });
-            $('#btnConcluir').click(function(event){
-    alert(questao)
+        });
+
+        $("#btnVoltar").click(function(){
+            if (questao > 1){
+                $("#Q" + questao).hide();
+                $("#Q" + (questao - 1)).show();
+                questao--;
+                if (questao == <?php echo (string) ($qtdQuestoes - 1); ?>){
+                    $("#btnProximo").show();
+                    $("#btnConcluir").hide();
+                }
+            }
+        });
+        
+        $('#btnConcluir').click(function(event){
             let mensagem = "";
             let respostas = "";
             for (let i = 1; i <= questao; i++){
-    if (i != questao){
-    respostas += i + " - " + $("input[name='nmQ" + i + "']:checked").val() + "\n";
-    } else{
-    respostas += i + " - " + $("input[name='nmQ" + i + "']:checked").val() + "\n";
-    }
-    }
-    opcao = confirm("Confirmar respostas: \n" + respostas);
+                if (i != questao){
+                    respostas += i + " - " + $("input[name='nmQ" + i + "']:checked").val() + "\n";
+                } else {
+                    respostas += i + " - " + $("input[name='nmQ" + i + "']:checked").val() + "\n";
+                }
+            }
+            
+            opcao = confirm("Confirmar respostas: \n" + respostas);
             if (opcao == false){
-    event.preventDefault();
-            tempo();
-    }
-    $('#tempo').val($('#cronometro').text());
+                event.preventDefault();
+                tempo();
+            }
+
+            $('#tempo').val($('#cronometro').text());
+            
             alert($('#tempo').val());
             parar();
-    });
-            $('#alternativas').on('click', function() {
-    $('#alternativas').toggleClass('qSelecionada');
-    });
+        });
+        
+        $('#alternativas').on('click', function() {
+            $('#alternativas').toggleClass('qSelecionada');
+        });
+
+
     });
 </script>
