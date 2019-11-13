@@ -18,7 +18,6 @@
         $hr =  (float) $tmp[0]*60;
         $min = (float) $tmp[1];
         $seg = (float) $tmp[2]/60;
-        echo $hr;
 
         $tempo = $hr + $min + $seg;
 
@@ -37,10 +36,20 @@
             $qt++;
         }
         $tempo = number_format($tempo,2);
-        $pontuacao = ($qtsCorretas * 100)/($tempo*$qtdQuestoes);
-        $pontuacao = number_format($pontuacao,2);
 
-        $bd->atualizarPontuacao($conexao, $_POST['idUsuario'], $poontuacao, $_POST['idQuiz'], $tempo);
+        if ($qtdQuestoes == $qtsCorretas) {
+            $pontuacao = (float) ($qtsCorretas * 100)/($tempo);
+        
+        } else if($qtsCorretas == 0){
+            $pontuacao = 0;
+        
+        } else if($qtdQuestoes > $qtsCorretas){
+            $pontuacao = (float) (($qtdQuestoes - $qtsCorretas)*100)/$tempo;
+        
+        } 
+        
+        $pontuacao = (float) number_format($pontuacao, 2, '.', '');
+        $bd->atualizarPontuacao($conexao, $_POST['idUsuario'], $pontuacao, $_POST['idQuiz'], $tempo);
         
         header('Location: ../quizzes/finalizado.php?idQuiz='.$_POST['idQuiz']);
 
