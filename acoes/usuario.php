@@ -40,6 +40,7 @@
             header('Location: ../view/inicial.php');
                             
         }else{
+            echo '<script> alert("ola"); </script>';
             header('Location: ../index.php');
             end();
         }
