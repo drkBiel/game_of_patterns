@@ -41,7 +41,7 @@
         $bd->atualizarPontuacao($conexao, $_POST['idUsuario'], $poontuacao, $_POST['idQuiz'], $tempo);
         echo $poontuacao . "  " . $tempo;
         
-        //header('Location: ../quizzes/finalizado.php?idQuiz='.$_POST['idQuiz']);
+        header('Location: ../quizzes/finalizado.php?idQuiz='.$_POST['idQuiz']);
 
     }
 
