@@ -21,7 +21,6 @@
 
         for ($i=0; $i < $qtdQuestoes; $i++) { 
             $resp = $bd->verificarResposta($conexao, $respQuestoes[$i],$idPerg[$i]);
-            
             if ($resp == 1){
                 $qtsCorretas++;
             }

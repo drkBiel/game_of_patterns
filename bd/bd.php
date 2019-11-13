@@ -3,9 +3,7 @@
 class BD {
 
     public function conexao() {
-        mb_internal_encoding("UTF-8");
-        mb_http_output("iso-8859-1");
-        $conexao = mysqli_connect("localhost", "root", "", "db_gop");
+        $conexao = mysqli_connect("us-cdbr-iron-east-05.cleardb.net","b067d1527549e8","b7cf4a61","heroku_74583cad15e5fd0");
         if (!$conexao) {
             $men_erro = "Erro ao conectar" . mysqli_connect_error();
             die($men_erro);

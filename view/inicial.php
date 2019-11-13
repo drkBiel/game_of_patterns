@@ -7,7 +7,6 @@
             $quiz = $bd->selecionarQuizzes($conexao);
             $qtdQuizzes = count($quiz);
             $hqr = $bd->selecionarHQRUsuario($conexao, $usuario[0]['id']);
-
         ?>
        
         <title>Game Of Partterns</title>
