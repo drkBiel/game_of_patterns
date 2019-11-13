@@ -15,9 +15,9 @@
         $qtsCorretas = 0;
 
         $tmp =  explode(":",$_POST['tempo']);
-        $hr =  (float) $tmp[0]/60;
+        $hr =  (float) $tmp[0]*60;
         $min = (float) $tmp[1];
-        $seg = (float) $tmp[2]*60;
+        $seg = (float) $tmp[2]/60;
         echo $hr;
 
         $tempo = $hr + $min + $seg;
@@ -36,16 +36,14 @@
 
             $qt++;
         }
+        $tempo = number_format($tempo,2);
+        $pontuacao = ($qtsCorretas * 100)/($tempo*$qtdQuestoes);
+        $pontuacao = number_format($pontuacao,2);
 
-        $poontuacao = ($qtsCorretas * 100)/$tempo;
         $bd->atualizarPontuacao($conexao, $_POST['idUsuario'], $poontuacao, $_POST['idQuiz'], $tempo);
-        echo $poontuacao . "  " . $tempo;
         
         header('Location: ../quizzes/finalizado.php?idQuiz='.$_POST['idQuiz']);
 
     }
-
-
-    
 
 ?>
