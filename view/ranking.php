@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <?php
-        require "header.php";
+        require "../estrutura/header.php";
         $bd = new BD();
         $conexao = $bd->conexao();
 

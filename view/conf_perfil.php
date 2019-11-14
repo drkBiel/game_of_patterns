@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         
-        <?php require 'header.php'; ?>
+        <?php require "../estrutura/header.php"; ?>
 
         <title>Game Of Partterns</title>
         <meta charset="ISO-8859-15">
@@ -43,7 +43,7 @@
                             <input type="hidden" name="id" value="<?php echo $usuario[0]['id'] ?>">
                             <input type="hidden" name="acao" value="editar"> 
                             <label>Nome:</label>
-                            <input class="form-control" type="text" name="nome" value="<?php echo $usuario[0]['nome']; ?>">
+                            <input class="form-control" type="text" name="nome" value="<?php echo $usuario[0]['nome']; ?>" maxlength="20">
                             <label>E-mail:</label>
                             <input class="form-control" type="email" name="email" id="email" value="<?php echo $usuario[0]['email']; ?>">
                             <label>Confirme e-mail:</label>

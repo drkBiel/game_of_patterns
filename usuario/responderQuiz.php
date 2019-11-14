@@ -2,13 +2,10 @@
 <html lang="pt-br">
     <head>
         <?php
-        require '../bd/bd.php';
-        $bd = new BD();
-        session_start();
-        $conexao = $bd->conexao();
-        $questoes = $bd->selecionarQuestoes($conexao, $_POST['idQuiz']);
-        $qtdQuestoes = count($bd->selecionarQuestoes($conexao, $_POST['idQuiz']));
-        $usuario = $bd->selecionarUsuario($conexao, $_SESSION['email']);
+            require "../estrutura/header.php";
+            $bd = new BD();
+            $questoes = $bd->selecionarQuestoes($conexao, $_POST['idQuiz']);
+            $qtdQuestoes = count($bd->selecionarQuestoes($conexao, $_POST['idQuiz']));
         ?>
 
         <meta charset="UTF-8">
@@ -34,35 +31,6 @@
     </head>
 
     <body onload="tempo();">
-        <header class="bg-gradient"> 
-            <div class="bg-gradient col-md-12">
-                <a href=""><img src="../img/logo.jpg" width="160" height="60"  class="position-absolute img-fluid text-hide"></a>
-                <ul class="nav justify-content-end form-inline">
-                    <li class="nav-item">
-                        <a href="../view/inicial.php">
-                            <button type="button" class="btn btn-info m-2">
-                                Página Inicial<span class="badge badge-gradient"><img src="../img/inicio-icone.png"></span>
-                            </button>
-                        </a>
-                        
-                        <a href="../view/ranking.php">
-                            <button type="button" class="btn btn-info m-2">
-                                Ranking <span class="badge badge-gradient"><img src="../img/ranking.png"></span> 
-                            </button>
-                        </a>
-
-                        <a href="../view/perfil.php">
-                            <button type="button" class="btn btn-info m-2">
-                                <?php echo $usuario[0]['nome']; ?> <span class="badge badge-gradient"><img src="../img/perfil-icone.png"></span> 
-                            </button>
-
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </header>
-        <hr>
-
         <form action="../acoes/quiz.php" method="post">
             <div class="container" align="justify" style="margin-top: 5%;">
 

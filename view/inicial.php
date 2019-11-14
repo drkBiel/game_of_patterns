@@ -2,7 +2,7 @@
 <html>
     <head>
         <?php
-            require "header.php";
+            require "../estrutura/header.php";
             
             $quiz = $bd->selecionarQuizzes($conexao);
             $qtdQuizzes = count($quiz);
