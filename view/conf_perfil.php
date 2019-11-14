@@ -29,7 +29,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4" id="lado_esquerdo">
+                <div class="col-md-4" id="lado_esquerdo" style="margin-top:5%;">
                     <div align="center">
                         <img src="../img/perfil.png"><br>
                         <a class="mt-2" href=""><strong>Selecionar Avatar</strong></a>
@@ -40,30 +40,38 @@
 
                     <div id="form">
                         <form class="form-group" action="../acoes/usuario.php" method="post">
+                            <label>* ->  Informações obrigatórias</label>
                             <input type="hidden" name="id" value="<?php echo $usuario[0]['id'] ?>">
                             <input type="hidden" name="acao" value="editar"> 
+                            <br>
                             <label>Nome:</label>
-                            <input class="form-control" type="text" name="nome" value="<?php echo $usuario[0]['nome']; ?>" maxlength="20">
-                            <label>E-mail:</label>
+                            <input class="form-control" type="text" name="nome" value="<?php echo $usuario[0]['nome']; ?>" maxlength="16">
+                            
+                            <label style="margin-top:2%;"> * E-mail:</label>
                             <input class="form-control" type="email" name="email" id="email" value="<?php echo $usuario[0]['email']; ?>">
-                            <label>Confirme e-mail:</label>
+                            
+                            <label style="margin-top:2%;"> * Confirme e-mail:</label>
                             <input class="form-control" type="email" name="conf_email" id="conf_email">
-                            <label>Nova senha:</label>
+                            
+                            <label style="margin-top:2%;">Nova senha:</label>
                             <input class="form-control" type="password" name="senha" id="senha">
-                            <label>Confirme Senha:</label>
+                            
+                            <label style="margin-top:2%;">Confirme Senha:</label>
                             <input class="form-control" type="password" name="conf_senha" id="conf_senha">
-                            <button type="submit" id="btnCad" class="btn btn-warning mt-2">
-                                <span class="badge badge-gradient"><img src="../img/configuracao-icone.png"></span> Cadastrar
-                            </button>
+                            
+                            
+
+                            <div class="col align-self-center" style="margin-top:3%;" >
+                                <div align="center">
+                                    <button type="submit" id="btnCad" class="btn btn-warning mt-2">
+                                        <span class="badge badge-gradient"><img src="../img/icons8-conf_atual.png"></span> Atualizar
+                                    </button>
+                                </div>
+                            </div>
 
                         </form>
                     </div>
 
-                    <div class="col-md-2" id="lado_esquerdo">
-                        <div align="center">
-                            <br>
-                        </div>
-                    </div>
 
 
                 </div> <!-- Lado Direito -->
