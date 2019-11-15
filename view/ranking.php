@@ -21,9 +21,6 @@
     </head>
     <body>
         <!-- divisão -->
-        <div class="m-4 position-absolute">
-            <p><a href=""><strong>Voltar</strong></a></p>
-        </div>
         <h1 align="center">Ranking Geral</h1>
         <div  id="area" class="shadow-lg p-3 b-5 bg-light rounded mt-2">
             <div id="quadro">
@@ -41,7 +38,7 @@
                         echo '<tr>';
                         echo '<td>' . (string) ($i + 1) . ' º</td>';
                         echo '<td>' . $ranking[$i]['nome'] . '</td>';
-                        echo '<td>' . $ranking[$i]['pont'] . '</td>';
+                        echo '<td>' . number_format($ranking[$i]['pont'], 2, '.', '').'</td>';
                         echo '</tr>';
                     }
                     ?>

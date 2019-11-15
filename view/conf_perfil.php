@@ -15,9 +15,6 @@
     <body>
          
         <!-- divisão -->
-        <div class="m-4 position-absolute">
-            <p><a href=""><strong>Voltar</strong></a></p>
-        </div>
         <div  id="area" class="shadow-lg p-3 b-5 bg-light rounded mt-2">
             <div id="cabecalho">
                 <div class="mt-2"><h1 align="center">Atualizar Informações Pessoais</h1></div>
