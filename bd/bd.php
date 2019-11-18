@@ -50,6 +50,15 @@ class BD {
         return $usuario;
     }
 
+
+    public function verificarEmail($con, $email){
+        $consulta = "SELECT * from usuario WHERE email = '$email'";
+        $resultado = mysqli_query($con, $consulta);
+
+        return mysqli_num_rows($resultado);
+
+    }
+
     public function editarUsuario($con, $id, $nome, $email, $senha) {
         $senha = md5($senha);
 

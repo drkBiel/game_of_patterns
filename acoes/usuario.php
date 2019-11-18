@@ -13,8 +13,13 @@
         $cdSenha = $_POST['cdSenha'] ? $_POST['cdSenha'] : ' ';
         $tpUsuario = $_POST['tpUser'] ? $_POST['tpUser'] : ' ';
 
-        $bd->cadastrarUsuario($conexao, $nome, $cdEmail, $tpUsuario, $cdSenha);
-        echo "<script language= 'JavaScript'> alert('Cadastro realizado com sucesso') </script>";
+        if($bd->verificarEmail($conexao, $_POST['cdEmail']) > 0){
+            echo "<script language= 'JavaScript'> alert('Email já cadastrado!') </script>";
+        }else{
+            $bd->cadastrarUsuario($conexao, $nome, $cdEmail, $tpUsuario, $cdSenha);
+            echo "<script language= 'JavaScript'> alert('Cadastro realizado com sucesso') </script>";
+        }
+        
         echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
         end();
     }
