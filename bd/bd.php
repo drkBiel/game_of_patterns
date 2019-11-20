@@ -282,6 +282,35 @@ class BD {
         return $posicao;
     }
 
+    public function cadastrarQuiz($con, $nomeQuiz, $idUsuario, $descricao){
+        $comando = "INSERT INTO `quiz`(`id_User`, `nome`, `descricao`) VALUES ('$idUsuario','$nomeQuiz','$descricao')";
+        mysqli_query($con, $comando);
+
+    }
+
+
+    public function cadastrarQuestao($con, $idQuiz, $enunciado, $alt_a, $alt_b, $alt_c, $alt_d, $alt_e, $alt_correta ){
+        $comando = "INSERT INTO `perguntas`(`id_Quiz`, `enunciado`, `alt_A`, `alt_B`, `alt_C`, `alt_D`, `alt_E`, `alt_Correta`) VALUES ('$idQuiz','$enunciado','$alt_a','$alt_b','$alt_c','$alt_d','$alt_e','$alt_correta')";
+        mysqli_query($con, $comando);
+    }
+
+    public function selecionarUltimoQuiz($con){
+        $comando = "SELECT * FROM quiz WHERE id_Quiz = (SELECT max(id_Quiz) FROM quiz)";
+        $resultado = mysqli_query($con, $comando);
+        $tblQuiz = array();
+        $i = 0;
+
+        while ($quiz = mysqli_fetch_array($resultado)) {
+            $tblQuiz[$i]['id_Quiz'] = $quiz['id_Quiz'];
+
+            $i += 1;
+        }
+
+        return $tblQuiz;
+
+
+    }
+
 }
 
 ?> 

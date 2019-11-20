@@ -1,10 +1,11 @@
 ﻿<?php
+    require "../bd/bd.php";
+    $bd = new BD();
+    $conexao = $bd->conexao();
     $acao = $_POST['acao'] ? $_POST['acao'] : ' ';
 
     if ($acao == "calcular"){
-        require "../bd/bd.php";
-        $bd = new BD();
-        $conexao = $bd->conexao();
+        
         
         $qtdQuestoes = (int)$_POST['qtdQuestoes'];
         $idPergs = array();
@@ -53,6 +54,25 @@
         
         header('Location: ../quizzes/finalizado.php?idQuiz='.$_POST['idQuiz']);
 
+    }
+
+    else if($acao == "cadastrar"){
+        $qtdQuestoes = $_POST['qtdQuestoes'];
+
+        $bd->cadastrarQuiz($conexao, $_POST['nomeQuiz'], $_POST['idUsuario'], "");
+        $quiz = $bd->selecionarUltimoQuiz($conexao);
+
+        
+        for ($i=1; $i <= $qtdQuestoes; $i++) {
+            
+            if((int)$_POST['qtd_alts_q'.$i] == 5){
+                $bd->cadastrarQuestao($conexao, $quiz[0]["id_Quiz"], $_POST['enun_alt_q'.$i], $_POST['alt_a_q'.$i], $_POST['alt_b_q'.$i], $_POST['alt_c_q'.$i], $_POST['alt_d_q'.$i], $_POST['alt_e_q'.$i], $_POST['alt_crt_q'.$i]);
+            } 
+            
+            else if ((int)$_POST['qtd_alts_q'.$i] == 4){
+                $bd->cadastrarQuestao($conexao, $quiz[0]["id_Quiz"], $_POST['enun_alt_q'.$i], $_POST['alt_a_q'.$i], $_POST['alt_b_q'.$i], $_POST['alt_c_q'.$i], $_POST['alt_d_q'.$i], "", $_POST['alt_crt_q'.$i]);
+            } 
+        }
     }
 
 ?>
