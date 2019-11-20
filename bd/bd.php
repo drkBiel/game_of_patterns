@@ -3,7 +3,7 @@
 class BD {
 
     public function conexao() {
-        $conexao = mysqli_connect("us-cdbr-iron-east-05.cleardb.net","b067d1527549e8","b7cf4a61","heroku_74583cad15e5fd0");
+        $conexao = mysqli_connect("localhost", "root", "", "db_gop");
         if (!$conexao) {
             $men_erro = "Erro ao conectar" . mysqli_connect_error();
             die($men_erro);
@@ -47,6 +47,22 @@ class BD {
 
             $i++;
         }
+        return $usuario;
+    }
+
+    public function selecionarUsuarioID($con, $idUser) {
+        $consulta = "SELECT * from usuario WHERE id_User = '$idUser'";
+        $resultado = mysqli_query($con, $consulta);
+        $usuario = array();
+        $listUsuario = array();
+
+        $i = 0;
+
+        while ($listUsuarios = mysqli_fetch_array($resultado)) {
+            $usuario[$i]['nome'] = $listUsuarios['nome'];
+            $i++;
+        }
+
         return $usuario;
     }
 
@@ -187,7 +203,7 @@ class BD {
     // Funções do Quiz
 
     public function selecionarQuizzes($con) {
-        $comando = "SELECT * FROM quiz";
+        $comando = "SELECT * FROM quiz WHERE id_User = 0";
         $resultado = mysqli_query($con, $comando);
         $tblQuiz = array();
         $i = 0;
@@ -203,6 +219,25 @@ class BD {
         return $tblQuiz;
     }
 
+    public function selecionarQuizzesProfessores($con) {
+        $comando = "SELECT * FROM quiz WHERE id_User != 0";
+        $resultado = mysqli_query($con, $comando);
+        $tblQuiz = array();
+        $i = 0;
+
+        while ($quizzes = mysqli_fetch_array($resultado)) {
+            $tblQuiz[$i]['id_Quiz'] = $quizzes['id_Quiz'];
+            $tblQuiz[$i]['id_User'] = $quizzes['id_User'];
+            $tblQuiz[$i]['nome'] = $quizzes['nome'];
+            $tblQuiz[$i]['descricao'] = $quizzes['descricao'];
+
+            $i += 1;
+        }
+
+        return $tblQuiz;
+    }
+
+
     public function selecionarQuiz($con, $idQuiz) {
         $comando = "SELECT * FROM quiz WHERE id_Quiz = '$idQuiz'";
         $resultado = mysqli_query($con, $comando);
@@ -210,7 +245,8 @@ class BD {
         $i = 0;
 
         while ($quizzes = mysqli_fetch_array($resultado)) {
-            $tblQuiz[$i]['id'] = $quizzes['id_Quiz'];
+            $tblQuiz[$i]['id_Quiz'] = $quizzes['id_Quiz'];
+            $tblQuiz[$i]['id_User'] = $quizzes['id_User'];
             $tblQuiz[$i]['nome'] = $quizzes['nome'];
             $tblQuiz[$i]['descricao'] = $quizzes['descricao'];
 
