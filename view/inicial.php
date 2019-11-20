@@ -74,9 +74,10 @@
                             <div class="col-md-3">
                                 <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
                                     <div class="card-body" style="position: relative;">
-
+                                        
+                                        <?php  $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[0]['id_User']); ?>
                                         <h5 class="card-title"> <?php echo $quiz[0]['nome']; ?></h5>
-                                        <p class="card-text"> <b> Criado por: <?php echo  $quiz[0]['nome'];?> </b></p>
+                                        <p class="card-text"> <b> Criado por: <?php echo  $profQuiz[0]['nome'];?> </b></p>
                                         <p class="card-text"><?php if($quiz[0]['descricao'] != "") { echo $quiz[0]['descricao']; } else{ echo "Esse quiz não possui descrição";}   ?></p>
                                         <input type='hidden' name='idQuiz' value="<?php echo $quiz[$i]['id_Quiz'] ?>">
                                         <input type='hidden' name='nomeQuiz' value="<?php echo $quiz[$i]['nome'] ?>">
@@ -119,7 +120,7 @@
                             }
                         }?>
 
-                <?php if ($i == 0) { ?> <h4 style="color: #fa7202;" class="text-center" align="center"> &nbsp&nbsp&nbsp&nbsp Nenhum quiz repondido </h4> <?php } ?>
+                <?php if ($i == 0) { ?> <h4 style="color: #fa7202; margin-left: 3%;" class="text-center" align="center"> Nenhum quiz repondido </h4> <?php } ?>
             </div>
         </div>
 
@@ -137,7 +138,7 @@
                             $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[0]['id_User']);
                             if (in_array($quiz, $qProfsPercorridos)){ }
                             
-                            else{  $qProfsPercorridos[$i] = $quiz; ?>
+                            else if( $quizProfs[0]['id_User'] != $usuario[0]['id']){  $qProfsPercorridos[$i] = $quiz; ?>
                             
                                 <div class="col-md-3">
                                     <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
@@ -163,7 +164,52 @@
                 </form>
             <?php }?>
 
-                <?php if ($i == 0) { ?> <h4 style="color: #fa7202;" class="text-center" align="center"> &nbsp&nbsp&nbsp&nbsp Nenhum quiz repondido </h4> <?php } ?>
+                <?php if ($i == 0 || $quizProfs[0]['id_User'] == $usuario[0]['id']) { ?> <h4 style="color: #fa7202; margin-left: 3%;" class="text-center" align="center"> Nenhum quiz criado por professor </h4> <?php } ?>
+                <?php  ?>
+            </div>
+        </div>
+
+        <h3 style="margin-left:10%; margin-top:2%;">Quizzes criados</h3>
+
+
+        <div id="area_cards">
+            <div class="row"> <!-- Linha de cards -->
+
+                <?php
+                    for ($i = 0; $i < ($qtdQuizzesProfs); $i++) {?>
+                        <form action='editarQuiz.php' method='post'>
+                        <?php
+                            $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[0]['id_User']);
+                            if (in_array($quiz, $qProfsPercorridos)){ }
+                            
+                            else if( $quizProfs[0]['id_User'] == $usuario[0]['id']){  $qProfsPercorridos[$i] = $quiz; ?>
+                            
+                                <div class="col-md-3">
+                                    <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
+                                        <div class="card-body" style="position: relative;">
+
+                                            <h5 class="card-title"> <?php echo $quizProfs[0]['nome']; ?></h5>
+                                            <p class="card-text"><?php if($quizProfs[0]['descricao'] != "") { echo $quizProfs[0]['descricao']; } else{ echo "Esse quiz não possui descrição";}   ?></p>
+                                            <input type='hidden' name='idQuiz' value="<?php echo $quizProfs[$i]['id_Quiz'] ?>">
+                                            <input type='hidden' name='nomeQuiz' value="<?php echo $quizProfs[$i]['nome'] ?>">
+
+                                            <div class="container">
+                                                <div class="row">
+                                                    <input type="hidden" name="idQuiz" value="<?php echo $quizProfs[$i]['id_Quiz'] ?>">
+                                                    <div class="col align-self-start"> <button href='editarQuiz' type='submit' class='btn btn-info' style="border-radius: 50%"> <img src="../img/icons8-editar-quiz.png" alt=""> </button> </div>
+                                                    <div class="col align-self-end"> <button href='#' class='btn btn-info' style="border-radius: 50%"> <img src="../img/icons8-excluir.png" alt=""> </button> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                  <?php } ?>
+                </form>
+            <?php }?>
+
+                <?php if ($i == 0 || $quizProfs[0]['id_User'] != $usuario[0]['id']) { ?> <h4 style="color: #fa7202; margin-left: 3%;" class="text-center" align="center"> Nenhum quiz criado por professor </h4> <?php } ?>
+                <?php  ?>
             </div>
         </div>
 
