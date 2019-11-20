@@ -123,7 +123,7 @@
                         <div class="row" style="margin-top:2%; margin-bottom:1%;">
                             <div class="col-md-6">
                                 Nome do Quiz:
-                                <input class="form-control" type="text" name="nomeQuiz" style="margin-left:2%;">
+                                <input class="form-control" type="text" name="nomeQuiz" style="margin-left:2%;" required="">
                             </div>
 
                             <div class="col-5">

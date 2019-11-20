@@ -6,7 +6,6 @@
 
     if ($acao == "calcular"){
         
-        
         $qtdQuestoes = (int)$_POST['qtdQuestoes'];
         $idPergs = array();
         $respQuestoes = array();
@@ -76,7 +75,7 @@
 
         echo "<script language= 'JavaScript'> alert('Quiz criado realizado com sucesso!') </script>";
 
-        echo "<script language= 'JavaScript'> location.href='../view/inincial.php' </script>";
+        echo "<script language= 'JavaScript'> location.href='../view/inicial.php' </script>";
     }
 
 ?>
