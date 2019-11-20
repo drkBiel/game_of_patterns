@@ -3,7 +3,7 @@
 class BD {
 
     public function conexao() {
-        $conexao = mysqli_connect("localhost", "root", "", "db_gop");
+        $conexao = mysqli_connect("us-cdbr-iron-east-05.cleardb.net","b067d1527549e8","b7cf4a61","heroku_74583cad15e5fd0");
         if (!$conexao) {
             $men_erro = "Erro ao conectar" . mysqli_connect_error();
             die($men_erro);
@@ -59,6 +59,7 @@ class BD {
         $i = 0;
 
         while ($listUsuarios = mysqli_fetch_array($resultado)) {
+            $usuario[$i]['id'] = $listUsuarios['id_User'];
             $usuario[$i]['nome'] = $listUsuarios['nome'];
             $i++;
         }
@@ -237,6 +238,24 @@ class BD {
         return $tblQuiz;
     }
 
+    public function selecionarQuizzesProfessor($con, $idUsuario) {
+        $comando = "SELECT * FROM quiz WHERE id_User = '$idUsuario'";
+        $resultado = mysqli_query($con, $comando);
+        $tblQuiz = array();
+        $i = 0;
+
+        while ($quizzes = mysqli_fetch_array($resultado)) {
+            $tblQuiz[$i]['id_Quiz'] = $quizzes['id_Quiz'];
+            $tblQuiz[$i]['id_User'] = $quizzes['id_User'];
+            $tblQuiz[$i]['nome'] = $quizzes['nome'];
+            $tblQuiz[$i]['descricao'] = $quizzes['descricao'];
+
+            $i += 1;
+        }
+
+        return $tblQuiz;
+    }
+
 
     public function selecionarQuiz($con, $idQuiz) {
         $comando = "SELECT * FROM quiz WHERE id_Quiz = '$idQuiz'";
@@ -271,6 +290,7 @@ class BD {
             $tblQuestoes[$i]['c'] = $questoes['alt_C'];
             $tblQuestoes[$i]['d'] = $questoes['alt_D'];
             $tblQuestoes[$i]['e'] = $questoes['alt_E'];
+            $tblQuestoes[$i]['crt'] = $questoes['alt_Correta'];
 
             $i += 1;
         }
