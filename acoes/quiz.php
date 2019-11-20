@@ -73,6 +73,10 @@
                 $bd->cadastrarQuestao($conexao, $quiz[0]["id_Quiz"], $_POST['enun_alt_q'.$i], $_POST['alt_a_q'.$i], $_POST['alt_b_q'.$i], $_POST['alt_c_q'.$i], $_POST['alt_d_q'.$i], "", $_POST['alt_crt_q'.$i]);
             } 
         }
+
+        echo "<script language= 'JavaScript'> alert('Quiz criado realizado com sucesso!') </script>";
+
+        echo "<script language= 'JavaScript'> location.href='../view/inincial.php' </script>";
     }
 
 ?>
