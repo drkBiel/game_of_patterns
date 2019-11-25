@@ -31,14 +31,15 @@
               
                 <div class="col-md-3"> <!-- Posição No Ranking -->
                     <b><h3 style="margin-top:16%; color: #fa7202; margin-left:9%;"> <?php echo $usuario[0]['nome'] ?> </h3></b> 
-                    <div class="cd_perfil bg-light" style="margin-top:15%;">
+                    
+                    <div class="cd_perfil bg-light" style="margin-top:16%;">
                         <h5 align="center" id="tl_perfil">Posição no ranking</h5>
                         <h5 align="center" id="dd_perfil"><?php echo $posicao; ?></h5>
                     </div>
                 </div>
 
                 <div class="col-md-3"> <!-- Posição geral -->
-                    <div class="cd_perfil bg-light" style="margin-top:43%;">
+                    <div class="cd_perfil bg-light" style="margin-top:16%;">
                         <h5 align="center" id="tl_perfil">Pontuação geral</h5>
                         <h5 align="center" id="dd_perfil"><?php echo $usuario[0]['pont'] ?></h5>
                     </div>
@@ -46,7 +47,7 @@
 
                 <div class="col-md-3"> <!-- Numero de quizzes -->
                     <br>
-                    <div class="cd_perfil bg-light" style="margin-top:33%;">
+                    <div class="cd_perfil bg-light" style="margin-top:16%;">
                         <h5 align="center" id="tl_perfil">Número de quizzes</h5>
                         <h5 align="center" id="dd_perfil"> <?php echo count($hqr); ?> </h5>
                     </div>
