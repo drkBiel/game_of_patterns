@@ -46,7 +46,6 @@
                 </div>
 
                 <div class="col-md-3"> <!-- Numero de quizzes -->
-                    <br>
                     <div class="cd_perfil bg-light" style="margin-top:16%;">
                         <h5 align="center" id="tl_perfil">Número de quizzes</h5>
                         <h5 align="center" id="dd_perfil"> <?php echo count($hqr); ?> </h5>
