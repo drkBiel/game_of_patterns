@@ -37,11 +37,11 @@
                             <div class="card-body" style="position: relative;">
                                 <h5 class="card-title"> <?php echo $quiz[$i]['nome']; ?></h5>
                                 <p class="card-text"><?php echo $quiz[$i]['descricao']; ?></p>
-                                
+
 
                                 <div class="container">
                                     <div class="row">
-                                        
+
                                         <form action='../usuario/responderQuiz.php' method='post'>
                                             <div class="col align-self-start"> <button href='#' type='submit' class='btn btn-warning'> Iniciar </button> </div>
                                             <input type='hidden' name='idQuiz' value="<?php echo $quiz[$i]['id'] ?>">
@@ -53,7 +53,7 @@
                                             <input type='hidden' name='idQuiz' value="<?php echo $quiz[$i]['id'] ?>">
                                             <input type='hidden' name='idUser' value="<?php echo $usuario[0]['id'] ?>">
                                         </form>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,6 @@
             <div class="row"> <!-- Linha de cards -->
 
                 <?php
-                
                 for ($i = 0; $i < count($hqr); $i++) {
                     $quiz = $bd->selecionarQuiz($conexao, $hqr[$i]['idQuiz']);
 
@@ -107,13 +106,13 @@
                                                     <input type='hidden' name='nomeQuiz' value="<?php echo $quiz[$i]['nome'] ?>">
                                                     <div class="col align-self-start"> <button href='#' type='submit' class='btn btn-warning'> Iniciar</button> </div>
                                                 </form>
-                                                
+
                                                 <form action="forum.php" method="post">
                                                     <input type='hidden' name='idQuiz' value="<?php echo $quiz[$i]['id_Quiz'] ?>">
                                                     <input type='hidden' name='idUser' value="<?php echo $usuario[0]['id'] ?>">
                                                     <div class="col align-self-end"> <button type='submit' class='btn btn-info'> Forum </a> </div>
                                                 </form>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +136,7 @@
                                                 echo "Esse quiz não possui descrição";
                                             }
                                             ?></p>
-                                        
+
 
                                         <div class="container">
                                             <div class="row">
@@ -146,13 +145,13 @@
                                                     <input type='hidden' name='nomeQuiz' value="<?php echo $quiz[0]['nome'] ?>">
                                                     <div class="col align-self-start"> <button href='#' type='submit' class='btn btn-warning'> Iniciar</button> </div>
                                                 </form>
-                                                
+
                                                 <form action="forum.php" method="post">
                                                     <input type='hidden' name='idQuiz' value="<?php echo $quiz[0]['id_Quiz'] ?>">
                                                     <input type='hidden' name='idUser' value="<?php echo $usuario[0]['id'] ?>">
                                                     <div class="col align-self-end"> <button type='submit' class='btn btn-info'> Forum </a> </div>
                                                 </form>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -177,52 +176,52 @@
             <div class="row"> <!-- Linha de cards -->
 
                 <?php for ($i = 0; $i < ($qtdQuizzesProfs); $i++) { ?>
-                    
-                        <?php
-                        $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[0]['id_User']);
-                        if (in_array($quiz, $qProfsPercorridos)) {
-                            
-                        } else if ($quizProfs[0]['id_User'] != $usuario[0]['id']) {
-                            $qProfsPercorridos[$i] = $quiz;
-                            ?>
 
-                            <div class="col-md-3">
-                                <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
-                                    <div class="card-body" style="position: relative;">
+                    <?php
+                    $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[0]['id_User']);
+                    if (in_array($quiz, $qProfsPercorridos)) {
+                        
+                    } else if ($quizProfs[0]['id_User'] != $usuario[0]['id']) {
+                        $qProfsPercorridos[$i] = $quiz;
+                        ?>
 
-                                        <h5 class="card-title"> <?php echo $quizProfs[0]['nome']; ?></h5>
-                                        <p class="card-text"> <b> Criado por: <?php echo $profQuiz[0]['nome']; ?> </b></p>
-                                        <p class="card-text"><?php
-                                            if ($quizProfs[0]['descricao'] != "") {
-                                                echo $quizProfs[0]['descricao'];
-                                            } else {
-                                                echo "Esse quiz não possui descrição";
-                                            }
-                                            ?></p>
-                                        
+                        <div class="col-md-3">
+                            <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
+                                <div class="card-body" style="position: relative;">
 
-                                        <div class="container">
-                                            <div class="row">
-                                                <form action='../usuario/responderQuiz.php' method='post'>
-                                                    <input type='hidden' name='idQuiz' value="<?php echo $quizProfs[$i]['id_Quiz'] ?>">
-                                                    <input type='hidden' name='nomeQuiz' value="<?php echo $quizProfs[$i]['nome'] ?>">
-                                                    <div class="col align-self-start"> <button  type='submit' class='btn btn-warning'> Iniciar</button> </div>
-                                                </form>
+                                    <h5 class="card-title"> <?php echo $quizProfs[0]['nome']; ?></h5>
+                                    <p class="card-text"> <b> Criado por: <?php echo $profQuiz[0]['nome']; ?> </b></p>
+                                    <p class="card-text"><?php
+                                        if ($quizProfs[0]['descricao'] != "") {
+                                            echo $quizProfs[0]['descricao'];
+                                        } else {
+                                            echo "Esse quiz não possui descrição";
+                                        }
+                                        ?></p>
 
-                                                <form action="forum.php" method="post">
-                                                    <input type='hidden' name='idQuiz' value="<?php echo $quizProfs[0]['id_Quiz'] ?>">
-                                                    <input type='hidden' name='idUser' value="<?php echo $usuario[0]['id'] ?>">
-                                                    <div class="col align-self-end"> <button type='submit' class='btn btn-info'> Forum </a> </div>
-                                                </form>
 
-                                            </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <form action='../usuario/responderQuiz.php' method='post'>
+                                                <input type='hidden' name='idQuiz' value="<?php echo $quizProfs[$i]['id_Quiz'] ?>">
+                                                <input type='hidden' name='nomeQuiz' value="<?php echo $quizProfs[$i]['nome'] ?>">
+                                                <div class="col align-self-start"> <button  type='submit' class='btn btn-warning'> Iniciar</button> </div>
+                                            </form>
+
+                                            <form action="forum.php" method="post">
+                                                <input type='hidden' name='idQuiz' value="<?php echo $quizProfs[0]['id_Quiz'] ?>">
+                                                <input type='hidden' name='idUser' value="<?php echo $usuario[0]['id'] ?>">
+                                                <div class="col align-self-end"> <button type='submit' class='btn btn-info'> Forum </a> </div>
+                                            </form>
+
                                         </div>
                                     </div>
-                                        
                                 </div>
+
                             </div>
-                        <?php } ?>
-                    
+                        </div>
+                    <?php } ?>
+
                 <?php } ?>
 
                 <?php if ($i == 0 || $quizProfs[0]['id_User'] == $usuario[0]['id']) { ?> <h4 style="color: #fa7202; margin-left: 3%;" class="text-center" align="center"> Nenhum quiz criado por professor </h4> <?php } ?>

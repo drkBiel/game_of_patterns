@@ -17,7 +17,7 @@
 
     </head>
     <body>
-        
+
         <div class="container" style="margin-top: 5%;">
             <div class="row">
                 <div class="col-md-3 align-self-center"> <!-- Imagem -->
@@ -28,10 +28,10 @@
                         </button>
                     </a>
                 </div>
-              
+
                 <div class="col-md-3"> <!-- Posição No Ranking -->
                     <b><h3 style="margin-top:16%; color: #fa7202; margin-left:9%;"> <?php echo $usuario[0]['nome'] ?> </h3></b> 
-                    
+
                     <div class="cd_perfil bg-light" style="margin-top:16%;">
                         <h5 align="center" id="tl_perfil">Posição no ranking</h5>
                         <h5 align="center" id="dd_perfil"><?php echo $posicao; ?></h5>

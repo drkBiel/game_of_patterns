@@ -76,6 +76,28 @@
         echo "<script language= 'JavaScript'> alert('Quiz criado realizado com sucesso!') </script>";
 
         echo "<script language= 'JavaScript'> location.href='../view/inicial.php' </script>";
+        
+    }
+
+    else if($acao == "editar"){
+        $qtdQuestoes = $_POST['qtdQuestoes'];
+        
+        $bd->editarQuiz($conexao, $_POST['idQuiz'], $_POST['nomeQuiz'], $_POST['idUsuario'], "");
+        $quiz = $bd->selecionarQuiz($conexao,$_POST['idQuiz']);
+
+        
+        for ($i=1; $i <= $qtdQuestoes; $i++) {
+            if((int)$_POST['numAlternativas_q'.$i] == 5){
+                $bd->editarQuestao($conexao, $_POST['idQuestao'.$i] ,$quiz[0]["id_Quiz"], $_POST['enun_alt_q'.$i], $_POST['alt_a_q'.$i], $_POST['alt_b_q'.$i], $_POST['alt_c_q'.$i], $_POST['alt_d_q'.$i], $_POST['alt_e_q'.$i], $_POST['alt_crt_q'.$i]);
+            } 
+            
+            else if ((int)$_POST['numAlternativas_q'.$i] == 4){
+                $bd->editarQuestao($conexao, $_POST['idQuestao'.$i], $quiz[0]["id_Quiz"], $_POST['enun_alt_q'.$i], $_POST['alt_a_q'.$i], $_POST['alt_b_q'.$i], $_POST['alt_c_q'.$i], $_POST['alt_d_q'.$i], "", $_POST['alt_crt_q'.$i]);
+            } 
+        }
+
+        echo "<script language= 'JavaScript'> alert('Quiz alterado com sucesso!') </script>";
+
     }
 
 ?>
