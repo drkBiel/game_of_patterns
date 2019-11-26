@@ -8,6 +8,12 @@
         $posicao = $bd->verificarPosicao($conexao, $_SESSION['email']);
         ?>
 
+        <style>
+            div{
+                border: solid black 1px;
+            }
+        </style>
+
         <title>Game Of Partterns</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
