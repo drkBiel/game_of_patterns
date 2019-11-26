@@ -67,13 +67,11 @@ class BD {
         return $usuario;
     }
 
-
-    public function verificarEmail($con, $email){
+    public function verificarEmail($con, $email) {
         $consulta = "SELECT * from usuario WHERE email = '$email'";
         $resultado = mysqli_query($con, $consulta);
 
         return mysqli_num_rows($resultado);
-
     }
 
     public function editarUsuario($con, $id, $nome, $email, $senha) {
@@ -128,13 +126,13 @@ class BD {
         $resultado = mysqli_query($con, $comando);
 
         $qtdQuizzes = mysqli_num_rows($resultado);
-        
+
         //Insere o novo registro na tabela do histórico
         $comando = "INSERT INTO `historico_qr`(`id_User`, `id_Quiz`, `tempo`, `pontuacao`) VALUES ('$idUsuario','$idQuiz','$tempo','$pontuacao')";
         $resultado = mysqli_query($con, $comando);
 
         //Verifica se a pontuação obtida é maior do que já possui
-        if($pontuacao > $usuario[0]['pontuacao']){
+        if ($pontuacao > $usuario[0]['pontuacao']) {
             //Alteração da pontuação total
             $usuario[0]['pontuacao'] = (float) $usuario[0]['pontuacao'];
             $pont = $pontuacao - $usuario[0]['pontuacao'];
@@ -149,7 +147,7 @@ class BD {
 
             $comando = "UPDATE `usuario` SET pontuacao='$pont', tempo_Total='$temp' WHERE id_User = $idUsuario";
             $resultado = mysqli_query($con, $comando);
-        } 
+        }
     }
 
     public function selecionarHQR($con, $idQuiz) {
@@ -256,7 +254,6 @@ class BD {
         return $tblQuiz;
     }
 
-
     public function selecionarQuiz($con, $idQuiz) {
         $comando = "SELECT * FROM quiz WHERE id_Quiz = '$idQuiz'";
         $resultado = mysqli_query($con, $comando);
@@ -275,6 +272,81 @@ class BD {
         return $tblQuiz;
     }
 
+    
+
+    public function verificarResposta($con, $resposta, $idPergunta) {
+        $comando = "SELECT * FROM perguntas WHERE id_Pergunta = '$idPergunta' and alt_Correta = '$resposta'";
+        $resultado = mysqli_query($con, $comando);
+        return mysqli_num_rows($resultado);
+    }
+
+    
+
+    public function cadastrarQuiz($con, $nomeQuiz, $idUsuario, $descricao) {
+        $comando = "INSERT INTO `quiz`(`id_User`, `nome`, `descricao`) VALUES ('$idUsuario','$nomeQuiz','$descricao')";
+        mysqli_query($con, $comando);
+    }
+
+    
+
+    public function selecionarUltimoQuiz($con) {
+        $comando = "SELECT * FROM quiz WHERE id_Quiz = (SELECT max(id_Quiz) FROM quiz)";
+        $resultado = mysqli_query($con, $comando);
+        $tblQuiz = array();
+        $i = 0;
+
+        while ($quiz = mysqli_fetch_array($resultado)) {
+            $tblQuiz[$i]['id_Quiz'] = $quiz['id_Quiz'];
+
+            $i += 1;
+        }
+
+        return $tblQuiz;
+    }
+
+
+    // Ranking
+    public function editarQuiz($con, $idQuiz, $nomeQuiz, $idUsuario, $descricao) {
+        $comando = "UPDATE `quiz` SET `id_User`='$idUsuario',`nome`='$nomeQuiz',`descricao`='$descricao' WHERE id_Quiz='$idQuiz'";
+        mysqli_query($con, $comando);
+    }
+
+    public function montarRanking($con) {
+        $comando = "SELECT nome, pontuacao FROM `usuario` ORDER BY pontuacao DESC";
+        $resultado = mysqli_query($con, $comando);
+        $usuarios = array();
+        $listUsuarios = array();
+
+        $i = 0;
+
+        while ($listUsuarios = mysqli_fetch_array($resultado)) {
+            $usuarios[$i]['nome'] = $listUsuarios['nome'];
+            $usuarios[$i]['pont'] = $listUsuarios['pontuacao'];
+
+            $i++;
+        }
+
+        return $usuarios;
+    }
+
+    public function verificarPosicao($con, $email) {
+        $ranking = $this->montarRanking($con);
+        $usuario = $this->selecionarUsuario($con, $email);
+
+        $posicao = 0;
+        for ($i = 0; $i < count($ranking); $i++) {
+            if ($usuario[0]['nome'] == $ranking[$i]['nome']) {
+                $posicao = $i + 1;
+                break;
+            }
+        }
+
+        return $posicao;
+    }
+
+
+    //Questão
+    
     public function selecionarQuestoes($con, $idQuiz) {
         $comando = "SELECT * FROM perguntas WHERE id_Quiz = '$idQuiz'";
         $resultado = mysqli_query($con, $comando);
@@ -298,75 +370,39 @@ class BD {
         return $tblQuestoes;
     }
 
-    public function verificarResposta($con, $resposta, $idPergunta) {
-        $comando = "SELECT * FROM perguntas WHERE id_Pergunta = '$idPergunta' and alt_Correta = '$resposta'";
-        $resultado = mysqli_query($con, $comando);
-        return mysqli_num_rows($resultado);
-    }
 
-    public function montarRanking($con) {
-        $comando = "SELECT nome, pontuacao FROM `usuario` ORDER BY pontuacao DESC";
-        $resultado = mysqli_query($con, $comando);
-        $usuarios = array();
-        $listUsuarios = array();
-
-        $i = 0;
-
-        while ($listUsuarios = mysqli_fetch_array($resultado)) {
-            $usuarios[$i]['nome'] = $listUsuarios['nome'];
-            $usuarios[$i]['pont'] = $listUsuarios['pontuacao'];
-
-            $i++;
-        }
-
-        return $usuarios;
-    }
-    
-    
-    public function verificarPosicao($con, $email){
-        $ranking = $this->montarRanking($con);
-        $usuario = $this->selecionarUsuario($con, $email);
-        
-        $posicao = 0;
-        for($i = 0; $i < count($ranking);$i++){
-            if($usuario[0]['nome'] == $ranking[$i]['nome']){
-                $posicao = $i + 1;
-                break;
-            }
-        }
-        
-        return $posicao;
-    }
-
-    public function cadastrarQuiz($con, $nomeQuiz, $idUsuario, $descricao){
-        $comando = "INSERT INTO `quiz`(`id_User`, `nome`, `descricao`) VALUES ('$idUsuario','$nomeQuiz','$descricao')";
-        mysqli_query($con, $comando);
-
-    }
-
-
-    public function cadastrarQuestao($con, $idQuiz, $enunciado, $alt_a, $alt_b, $alt_c, $alt_d, $alt_e, $alt_correta ){
+    public function cadastrarQuestao($con, $idQuiz, $enunciado, $alt_a, $alt_b, $alt_c, $alt_d, $alt_e, $alt_correta) {
         $comando = "INSERT INTO `perguntas`(`id_Quiz`, `enunciado`, `alt_A`, `alt_B`, `alt_C`, `alt_D`, `alt_E`, `alt_Correta`) VALUES ('$idQuiz','$enunciado','$alt_a','$alt_b','$alt_c','$alt_d','$alt_e','$alt_correta')";
         mysqli_query($con, $comando);
     }
 
-    public function selecionarUltimoQuiz($con){
-        $comando = "SELECT * FROM quiz WHERE id_Quiz = (SELECT max(id_Quiz) FROM quiz)";
+    public function editarQuestao($con, $idPergunta, $idQuiz, $enunciado, $alt_a, $alt_b, $alt_c, $alt_d, $alt_e, $alt_correta) {
+        $comando = "UPDATE `perguntas` SET `id_Quiz`='$idQuiz',`enunciado`='$enunciado',`alt_A`='$alt_a',`alt_B`='$alt_b',`alt_C`='$alt_c',`alt_D`='$alt_d',`alt_E`='$alt_e',`alt_Correta`='$alt_correta' WHERE 'id_Pergunta' = '$idPergunta'";
+        echo $comando;
+        mysqli_query($con, $comando);
+    }
+
+
+    //Fórum
+    public function inserirComentario($con, $idQuiz, $idUsuario, $comentatrio){
+        $comando = "INSERT INTO `forum`(`id_User`, `id_Quiz`, `comentario`) VALUES ('$idUsuario', '$idQuiz', '$comentatrio')";
+        mysqli_query($con, $comando);
+    }
+
+    public function selecionarComentarios($con, $idQuiz) {
+        $comando = "SELECT * FROM forum WHERE id_Quiz = '$idQuiz'";
         $resultado = mysqli_query($con, $comando);
-        $tblQuiz = array();
+        $tblComentarios = array();
         $i = 0;
 
-        while ($quiz = mysqli_fetch_array($resultado)) {
-            $tblQuiz[$i]['id_Quiz'] = $quiz['id_Quiz'];
 
+        while ($comentatrios = mysqli_fetch_array($resultado)) {
+            $tblComentarios[$i]['idUser'] = $comentatrios['id_User'];
+            $tblComentarios[$i]['comentario'] = $comentatrios['comentario'];
             $i += 1;
         }
 
-        return $tblQuiz;
-
-
+        return $tblComentarios;
     }
-
 }
-
 ?> 

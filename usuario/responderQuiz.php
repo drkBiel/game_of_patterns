@@ -2,10 +2,10 @@
 <html lang="pt-br">
     <head>
         <?php
-            require "../estrutura/header.php";
-            $bd = new BD();
-            $questoes = $bd->selecionarQuestoes($conexao, $_POST['idQuiz']);
-            $qtdQuestoes = count($bd->selecionarQuestoes($conexao, $_POST['idQuiz']));
+        require "../estrutura/header.php";
+        $bd = new BD();
+        $questoes = $bd->selecionarQuestoes($conexao, $_POST['idQuiz']);
+        $qtdQuestoes = count($bd->selecionarQuestoes($conexao, $_POST['idQuiz']));
         ?>
 
         <meta charset="UTF-8">
@@ -138,18 +138,8 @@
         <input type="hidden" name="idUsuario" value="<?php echo $usuario[0]['id']; ?>">
     </form>
 
-
-
-
-    <
-    <!--footer class="card text-center" style=" position:relative; bottom:0;  width:100%;">
-            <div class="card-footer">
-                    Entrega do dia 11 de Agosto de 2019.
-            </div>
-    </footer-->
 </body>
 
-<!-- Scripts -->
 
 
 
@@ -157,62 +147,62 @@
 </html>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         let questao = 1;
         $("#btnConcluir").hide();
-        
+
         for (let index = 2; index <= <?php echo $qtdQuestoes; ?>; index++) {
             $("#Q" + index).hide();
         }
 
-        $("#btnProximo").click(function(){
+        $("#btnProximo").click(function () {
             $("#Q" + questao).hide();
             $("#Q" + (questao + 1)).show();
             questao++;
-            
-            if (questao == <?php echo $qtdQuestoes; ?>){
+
+            if (questao == <?php echo $qtdQuestoes; ?>) {
                 $("#btnProximo").hide();
                 $("#btnConcluir").show();
             }
 
         });
 
-        $("#btnVoltar").click(function(){
-            if (questao > 1){
+        $("#btnVoltar").click(function () {
+            if (questao > 1) {
                 $("#Q" + questao).hide();
                 $("#Q" + (questao - 1)).show();
                 questao--;
-                if (questao == <?php echo (string) ($qtdQuestoes - 1); ?>){
+                if (questao == <?php echo (string) ($qtdQuestoes - 1); ?>) {
                     $("#btnProximo").show();
                     $("#btnConcluir").hide();
                 }
             }
         });
-        
-        $('#btnConcluir').click(function(event){
+
+        $('#btnConcluir').click(function (event) {
             let mensagem = "";
             let respostas = "";
-            for (let i = 1; i <= questao; i++){
-                if (i != questao){
+            for (let i = 1; i <= questao; i++) {
+                if (i != questao) {
                     respostas += i + " - " + $("input[name='nmQ" + i + "']:checked").val() + "\n";
                 } else {
                     respostas += i + " - " + $("input[name='nmQ" + i + "']:checked").val() + "\n";
                 }
             }
-            
+
             opcao = confirm("Confirmar respostas: \n" + respostas);
-            if (opcao == false){
+            if (opcao == false) {
                 event.preventDefault();
                 tempo();
             }
 
             $('#tempo').val($('#cronometro').text());
-            
+
             alert($('#tempo').val());
             parar();
         });
-        
-        $('#alternativas').on('click', function() {
+
+        $('#alternativas').on('click', function () {
             $('#alternativas').toggleClass('qSelecionada');
         });
 

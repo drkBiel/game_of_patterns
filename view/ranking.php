@@ -38,7 +38,7 @@
                         echo '<tr>';
                         echo '<td>' . (string) ($i + 1) . ' º</td>';
                         echo '<td>' . $ranking[$i]['nome'] . '</td>';
-                        echo '<td>' . number_format($ranking[$i]['pont'], 2, '.', '').'</td>';
+                        echo '<td>' . number_format($ranking[$i]['pont'], 2, '.', '') . '</td>';
                         echo '</tr>';
                     }
                     ?>
