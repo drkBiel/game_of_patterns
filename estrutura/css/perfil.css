@@ -64,3 +64,9 @@ hr{
 }
 
 
+#badges{
+  width: 100%;
+  height: 600px;
+  border: solid #75b3ff 1px;
+  border-radius: 2px;
+}

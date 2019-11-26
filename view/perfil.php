@@ -8,11 +8,7 @@
         $posicao = $bd->verificarPosicao($conexao, $_SESSION['email']);
         ?>
 
-        <style>
-            div{
-                border: solid black 1px;
-            }
-        </style>
+        
 
         <title>Game Of Partterns</title>
 
@@ -66,7 +62,7 @@
                     
                 </div>
 
-                <div class="col-md-9"> <!-- Posição No Ranking -->
+                <div id="badges" class="col-md-9"> <!-- Posição No Ranking -->
                     
 
                    
