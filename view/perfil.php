@@ -22,7 +22,7 @@
 
         <div class="container" style="margin-top: 5%;">
             <div class="row">
-                <div class="col-md-3 align-self-center"> <!-- Imagem -->
+                <div class="col-md-3 align-self-center" align="center"> <!-- Imagem -->
                     <img src="../img/perfil.png">
                     <a href="conf_perfil.php">
                         <button type="submit" id="btnCad" class="btn btn-warning mt-2">
