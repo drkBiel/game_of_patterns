@@ -36,9 +36,9 @@
                     $ranking = $bd->montarRanking($conexao);
                     for ($i = 0; $i < count($ranking); $i++) {
                         echo '<tr>';
-                        echo '<td>' . (string) ($i + 1) . ' º</td>';
-                        echo '<td>' . $ranking[$i]['nome'] . '</td>';
-                        echo '<td>' . number_format($ranking[$i]['pont'], 2, '.', '') . '</td>';
+                        echo '<td> <i><img src="..img/1.png"></i>' . (string) ($i + 1) . ' º</td>';
+                        echo '<td><i><img src="..img/2.png"></i>' . $ranking[$i]['nome'] . '</td>';
+                        echo '<td><i><img src="..img/3.png"></i>' . number_format($ranking[$i]['pont'], 2, '.', '') . '</td>';
                         echo '</tr>';
                     }
                     ?>
@@ -46,6 +46,8 @@
                 </table>
             </div>
         </div> <!-- area -->
+
+      
 
         <footer class="card text-center">
            
