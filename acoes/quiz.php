@@ -96,10 +96,10 @@
         echo '<script language= "JavaScript"> $("#redirecionar").submit(); </script>';
     }
 
-    else if($acao == "deletar"){
-        $bd->excluirQuestao($conexao, $_POST['idQuiz']);
+    else if($acao == "excluir"){
+        $bd->excluirQuiz($conexao, $_POST['idQuiz']);
 
-        echo "<script language= 'JavaScript'> alert('Questão excluída com sucesso.') </script>";
+        echo "<script language= 'JavaScript'> alert('Quiz excluída com sucesso.') </script>";
         echo '<script language= "JavaScript"> $("#redirecionar").submit(); </script>';
     }
 
