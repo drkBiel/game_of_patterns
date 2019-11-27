@@ -63,7 +63,7 @@
                 </div>
 
                 <div id="badges" class="col-md-9"> <!-- Posição No Ranking -->
-                    <h3 align="center" class="mt-2">Minhas Conquistas</h3>
+                    <h5 align="center" class="mt-2">Minhas Conquistas</h5>
 
                    
                 </div>
