@@ -140,7 +140,7 @@
                 </div>
             </div>
         <div id="areaQuestoes" style="margin-top:3%; margin-left:5%;"></div>
-        <input type="hidden" value="cadastrar">
+        <input type="hidden" name="acao" value="cadastrar">
         <input type="hidden" name="idUsuario" value="<?php echo $usuario[0]['id']; ?>">
     </form>
     
