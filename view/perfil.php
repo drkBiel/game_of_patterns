@@ -23,7 +23,7 @@
         <div class="container" style="margin-top: 5%;">
             <div class="row">
                 <div class="col-md-3 align-self-center"> <!-- Imagem -->
-                    <img src="../img/perfil.png" style="margin-left: 13%;">
+                    <img src="../img/perfil.png">
                     <a href="conf_perfil.php">
                         <button type="submit" id="btnCad" class="btn btn-warning mt-2">
                             <span class="badge badge-gradient"><img src="../img/configuracao-icone.png"></span> Atualizar 
