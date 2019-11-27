@@ -26,7 +26,7 @@
     </head>
     <body>
 
-        <div class="container" style="margin-top: 5%;">
+        <div class="container">
             <div class="row">
                 <div class="col-md-3 align-self-center" align="center"> <!-- Imagem -->
                     <img src="../img/perfil.png">
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="col-md-3"> <!-- Numero de quizzes -->
-                    <div class="cd_perfil bg-light" style="margin-top:16%;">
+                    <div class="cd_perfil bg-light">
                         <h5 align="center" id="tl_perfil">Número de quizzes</h5>
                         <h5 align="center" id="dd_perfil"> <?php echo count($hqr); ?> </h5>
                     </div>
