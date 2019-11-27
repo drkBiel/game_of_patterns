@@ -7,7 +7,13 @@
         $hqr = $bd->selecionarHQRUsuario($conexao, $usuario[0]['id']);
         $posicao = $bd->verificarPosicao($conexao, $_SESSION['email']);
         ?>
+         
 
+         <style>
+             div{
+                border: solid black 1px;
+             }
+         </style>
         
 
         <title>Game Of Partterns</title>
@@ -32,16 +38,16 @@
                 </div>
 
                 <div class="col-md-3" align="center"> <!-- Posição No Ranking -->
-                    <b><h3 style="margin-top:16%; color: #fa7202; margin-left:9%;"> <?php echo $usuario[0]['nome'] ?> </h3></b> 
+                    <b><h3> <?php echo $usuario[0]['nome'] ?> </h3></b> 
 
-                    <div class="cd_perfil bg-light" style="margin-top:16%;">
+                    <div class="cd_perfil bg-light">
                         <h5 align="center" id="tl_perfil">Posição no ranking</h5>
                         <h5 align="center" id="dd_perfil"><?php echo $posicao; ?></h5>
                     </div>
                 </div>
 
                 <div class="col-md-3"> <!-- Posição geral -->
-                    <div class="cd_perfil bg-light" style="margin-top:16%;">
+                    <div class="cd_perfil bg-light" >
                         <h5 align="center" id="tl_perfil">Pontuação geral</h5>
                         <h5 align="center" id="dd_perfil"><?php echo $usuario[0]['pont'] ?></h5>
                     </div>
