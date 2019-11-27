@@ -31,7 +31,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-3"> <!-- Posição No Ranking -->
+                <div class="col-md-3" align="center"> <!-- Posição No Ranking -->
                     <b><h3 style="margin-top:16%; color: #fa7202; margin-left:9%;"> <?php echo $usuario[0]['nome'] ?> </h3></b> 
 
                     <div class="cd_perfil bg-light" style="margin-top:16%;">
