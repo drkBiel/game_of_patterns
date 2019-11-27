@@ -1,4 +1,15 @@
-﻿<?php
+﻿<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/inicial.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+<form action="../view/editarQuiz.php" id="redirecionar" method="post">
+    <input type='hidden' name='idQuiz' value="<?php echo $_POST['idQuiz']; ?>">
+</form>
+
+<?php
     require "../bd/bd.php";
     $bd = new BD();
     $conexao = $bd->conexao();
@@ -51,7 +62,7 @@
         $pontuacao = (float) number_format($pontuacao, 2, '.', '');
         $bd->atualizarPontuacao($conexao, $_POST['idUsuario'], $pontuacao, $_POST['idQuiz'], $tempo);
         
-        header('Location: ../quizzes/finalizado.php?idQuiz='.$_POST['idQuiz']);
+        echo "<script language= 'JavaScript'> location.href='../view/inicial.php' </script>";
 
     }
 
@@ -73,31 +84,60 @@
             } 
         }
 
-        echo "<script language= 'JavaScript'> alert('Quiz criado realizado com sucesso!') </script>";
-
+        echo "<script language= 'JavaScript'> alert('Quiz criado com sucesso!') </script>";
         echo "<script language= 'JavaScript'> location.href='../view/inicial.php' </script>";
         
     }
+       
 
     else if($acao == "editar"){
-        $qtdQuestoes = $_POST['qtdQuestoes'];
+        $bd->editarQuiz($conexao, $_POST['idQuiz'], $_POST['nome'], $_POST['idUser'],"");
+        echo "<script language= 'JavaScript'> alert('Quiz alterado com sucesso.') </script>";
+        echo '<script language= "JavaScript"> $("#redirecionar").submit(); </script>';
+    }
+
+    else if($acao == "deletar"){
+        $bd->excluirQuestao($conexao, $_POST['idQuiz']);
+
+        echo "<script language= 'JavaScript'> alert('Questão excluída com sucesso.') </script>";
+        echo '<script language= "JavaScript"> $("#redirecionar").submit(); </script>';
+    }
+
+    
+
+
+    else if($acao == "editarQuestao"){
+        $q = $_POST['idPerg'];
         
-        $bd->editarQuiz($conexao, $_POST['idQuiz'], $_POST['nomeQuiz'], $_POST['idUsuario'], "");
-        $quiz = $bd->selecionarQuiz($conexao,$_POST['idQuiz']);
+        $bd->editarQuestao(
+            $conexao, $_POST['idPerg'], $_POST['idQuiz'], $_POST['enun_alts_q'. $q],
+            $_POST['alt_a_q'. $q], $_POST['alt_b_q'. $q], $_POST['alt_c_q'. $q],
+            $_POST['alt_d_q'. $q], $_POST['alt_e_q'. $q], $_POST['alt_crt_q'. $q]
+        );
 
+        echo "<script language= 'JavaScript'> alert('Questão alterada com sucesso.') </script>";
+        echo '<script language= "JavaScript"> $("#redirecionar").submit(); </script>';
+
+    }
+
+    else if($acao == "adicionarQuestao"){
+        $bd->cadastrarQuestao(
+            $conexao, $_POST['idQuiz'], $_POST['enun_alts_q'],
+            $_POST['alt_a_q'], $_POST['alt_b_q'], $_POST['alt_c_q'],
+            $_POST['alt_d_q'], $_POST['alt_e_q'], $_POST['alt_crt_q']
+        );
+
+        echo "<script language= 'JavaScript'> alert('Questão adicionada com sucesso.') </script>";
+        echo '<script language= "JavaScript"> $("#redirecionar").submit(); </script>';
         
-        for ($i=1; $i <= $qtdQuestoes; $i++) {
-            if((int)$_POST['numAlternativas_q'.$i] == 5){
-                $bd->editarQuestao($conexao, $_POST['idQuestao'.$i] ,$quiz[0]["id_Quiz"], $_POST['enun_alt_q'.$i], $_POST['alt_a_q'.$i], $_POST['alt_b_q'.$i], $_POST['alt_c_q'.$i], $_POST['alt_d_q'.$i], $_POST['alt_e_q'.$i], $_POST['alt_crt_q'.$i]);
-            } 
-            
-            else if ((int)$_POST['numAlternativas_q'.$i] == 4){
-                $bd->editarQuestao($conexao, $_POST['idQuestao'.$i], $quiz[0]["id_Quiz"], $_POST['enun_alt_q'.$i], $_POST['alt_a_q'.$i], $_POST['alt_b_q'.$i], $_POST['alt_c_q'.$i], $_POST['alt_d_q'.$i], "", $_POST['alt_crt_q'.$i]);
-            } 
-        }
+    
+    }
 
-        echo "<script language= 'JavaScript'> alert('Quiz alterado com sucesso!') </script>";
+    else if($acao == "excluirQuestao"){
+        $bd->excluirQuestao($conexao, $_POST['idPerg']);
 
+        echo "<script language= 'JavaScript'> alert('Questão excluída com sucesso.') </script>";
+        echo '<script language= "JavaScript"> $("#redirecionar").submit(); </script>';
     }
 
 ?>

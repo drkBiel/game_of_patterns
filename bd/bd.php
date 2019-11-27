@@ -304,13 +304,18 @@ class BD {
         return $tblQuiz;
     }
 
-
-    // Ranking
     public function editarQuiz($con, $idQuiz, $nomeQuiz, $idUsuario, $descricao) {
-        $comando = "UPDATE `quiz` SET `id_User`='$idUsuario',`nome`='$nomeQuiz',`descricao`='$descricao' WHERE id_Quiz='$idQuiz'";
+        $comando = "UPDATE `quiz` SET id_User='$idUsuario', nome ='$nomeQuiz', descricao ='$descricao' WHERE id_Quiz='$idQuiz'";
         mysqli_query($con, $comando);
     }
 
+    public function excluirQuiz($con, $idQuiz){
+        $comando = "DELETE FROM `quiz` WHERE id_Quiz = '$idQuiz'";
+        $resultado = mysqli_query($con, $comando);
+    }
+
+
+    // Ranking
     public function montarRanking($con) {
         $comando = "SELECT nome, pontuacao FROM `usuario` ORDER BY pontuacao DESC";
         $resultado = mysqli_query($con, $comando);
@@ -345,14 +350,13 @@ class BD {
     }
 
 
-    //Questão
-    
+    //Questão    
     public function selecionarQuestoes($con, $idQuiz) {
         $comando = "SELECT * FROM perguntas WHERE id_Quiz = '$idQuiz'";
         $resultado = mysqli_query($con, $comando);
         $tblQuestoes = array();
         $i = 0;
-
+       
 
         while ($questoes = mysqli_fetch_array($resultado)) {
             $tblQuestoes[$i]['idPerg'] = $questoes['id_Pergunta'];
@@ -366,7 +370,6 @@ class BD {
 
             $i += 1;
         }
-
         return $tblQuestoes;
     }
 
@@ -377,9 +380,13 @@ class BD {
     }
 
     public function editarQuestao($con, $idPergunta, $idQuiz, $enunciado, $alt_a, $alt_b, $alt_c, $alt_d, $alt_e, $alt_correta) {
-        $comando = "UPDATE `perguntas` SET `id_Quiz`='$idQuiz',`enunciado`='$enunciado',`alt_A`='$alt_a',`alt_B`='$alt_b',`alt_C`='$alt_c',`alt_D`='$alt_d',`alt_E`='$alt_e',`alt_Correta`='$alt_correta' WHERE 'id_Pergunta' = '$idPergunta'";
-        echo $comando;
-        mysqli_query($con, $comando);
+        $comando = "UPDATE `perguntas` SET id_Quiz ='$idQuiz', enunciado = '$enunciado', alt_A ='$alt_a', alt_B ='$alt_b', alt_C ='$alt_c', alt_D ='$alt_d', alt_E ='$alt_e', alt_Correta ='$alt_correta' WHERE id_Pergunta = '$idPergunta'";
+        $resultado = mysqli_query($con, $comando);
+    }
+
+    public function excluirQuestao($con, $idPergunta){
+        $comando = "DELETE FROM `perguntas` WHERE id_Pergunta = '$idPergunta'";
+        $resultado = mysqli_query($con, $comando);
     }
 
 
@@ -404,5 +411,8 @@ class BD {
 
         return $tblComentarios;
     }
+
+
+    
 }
 ?> 

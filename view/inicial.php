@@ -238,21 +238,23 @@
                 <?php for ($i = 0; $i < ($qtdQuizzesProfs); $i++) { ?>
                     <form action='editarQuiz.php' method='post'>
                         <?php
-                        $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[0]['id_User']);
-                        if (in_array($quiz, $qProfsPercorridos)) {
+                        $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[$i]['id_User']);
+                        if (in_array($quizProfs, $qProfsPercorridos)) {
                             
-                        } else if ($quizProfs[0]['id_User'] == $usuario[0]['id']) {
+
+                        } else if ($quizProfs[$i]['id_User'] == $usuario[0]['id']) {
                             $qProfsPercorridos[$i] = $quiz;
+                            
                             ?>
 
                             <div class="col-md-3">
                                 <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
                                     <div class="card-body" style="position: relative;">
 
-                                        <h5 class="card-title"> <?php echo $quizProfs[0]['nome']; ?></h5>
+                                        <h5 class="card-title"> <?php echo $quizProfs[$i]['nome']; ?></h5>
                                         <p class="card-text"><?php
-                                            if ($quizProfs[0]['descricao'] != "") {
-                                                echo $quizProfs[0]['descricao'];
+                                            if ($quizProfs[$i]['descricao'] != "") {
+                                                echo $quizProfs[$i]['descricao'];
                                             } else {
                                                 echo "Esse quiz não possui descrição";
                                             }
