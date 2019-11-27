@@ -3,7 +3,6 @@
     <head>
         <?php
         require "../estrutura/header.php";
-        require "../estrutura/mbstring.php";
         $bd = new BD();
         $conexao = $bd->conexao();
 
