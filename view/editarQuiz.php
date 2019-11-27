@@ -3,6 +3,7 @@
     <head>
         <?php
         require "../estrutura/header.php";
+        require "../estrutura/mbstring.php";
         $bd = new BD();
         $conexao = $bd->conexao();
 
@@ -71,7 +72,7 @@
                         
                             <tr>
                                 <td><?php echo ($i+1). "ª"; ?></td>
-                                <td><?php echo $questoes[$i]['enunciado']; ?></td>
+                                <td><?php echo substr($questoes[$i]['enunciado'], 0, 50); ?></td>
                                 <td> 
                                     <a href="#" data-toggle="modal" data-target="#modalEdit<?php echo $i;?>"><i class="fa fa-edit"></i> </a> &nbsp
                                     <a href="#" onclick="delQuestao(<?php echo ($i+1) . ', ' . $questoes[$i]['idPerg'];?>)"><i class="fa fa-trash"></i></a>
