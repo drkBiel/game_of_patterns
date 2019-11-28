@@ -7,7 +7,7 @@
         $hqr = $bd->selecionarHQRUsuario($conexao, $usuario[0]['id']);
         $posicao = $bd->verificarPosicao($conexao, $_SESSION['email']);
         ?>
-
+         
         
 
         <title>Game Of Partterns</title>
@@ -20,7 +20,7 @@
     </head>
     <body>
 
-        <div class="container" style="margin-top: 5%;">
+        <div class="container">
             <div class="row">
                 <div class="col-md-3 align-self-center" align="center"> <!-- Imagem -->
                     <img src="../img/perfil.png">
@@ -32,23 +32,23 @@
                 </div>
 
                 <div class="col-md-3" align="center"> <!-- Posição No Ranking -->
-                    <b><h3 style="margin-top:16%; color: #fa7202; margin-left:9%;"> <?php echo $usuario[0]['nome'] ?> </h3></b> 
+                    <b><h3> <?php echo $usuario[0]['nome'] ?> </h3></b> 
 
-                    <div class="cd_perfil bg-light" style="margin-top:16%;">
+                    <div class="cd_perfil bg-light">
                         <h5 align="center" id="tl_perfil">Posição no ranking</h5>
                         <h5 align="center" id="dd_perfil"><?php echo $posicao; ?></h5>
                     </div>
                 </div>
 
                 <div class="col-md-3"> <!-- Posição geral -->
-                    <div class="cd_perfil bg-light" style="margin-top:16%;">
+                    <div class="cd_perfil bg-light" >
                         <h5 align="center" id="tl_perfil">Pontuação geral</h5>
                         <h5 align="center" id="dd_perfil"><?php echo $usuario[0]['pont'] ?></h5>
                     </div>
                 </div>
 
                 <div class="col-md-3"> <!-- Numero de quizzes -->
-                    <div class="cd_perfil bg-light" style="margin-top:16%;">
+                    <div class="cd_perfil bg-light">
                         <h5 align="center" id="tl_perfil">Número de quizzes</h5>
                         <h5 align="center" id="dd_perfil"> <?php echo count($hqr); ?> </h5>
                     </div>
@@ -63,8 +63,8 @@
                 </div>
 
                 <div id="badges" class="col-md-9"> <!-- Posição No Ranking -->
-                    
-
+                    <h5 align="center" class="mt-2">Minhas Conquistas</h5>
+                    <hr> 
                    
                 </div>
                 
