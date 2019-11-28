@@ -33,6 +33,7 @@
                         </tr>
                     </thead>
                     <?php
+                    echo '<td>' . (string) (1) . ' º</td>';
                     $ranking = $bd->montarRanking($conexao);
                     for ($i = 0; $i < count($ranking); $i++) {
                         echo '<tr>';
