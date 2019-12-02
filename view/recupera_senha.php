@@ -2,7 +2,13 @@
 <html>
     <head>
         <title>Game Of Partterns</title>
-        <?php require "../estrutura/header.php"; ?>
+        <?php
+        if(count($_SESSION) == 0){
+            echo "<script language= 'JavaScript'> alert('Erro, usuário não autenticado!') </script>";
+            echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
+        
+        }
+        require "../estrutura/header.php"; ?>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">

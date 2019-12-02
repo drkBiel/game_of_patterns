@@ -2,6 +2,11 @@
 <html lang="pt-br">
     <head>
         <?php
+        if(count($_SESSION) == 0){
+            echo "<script language= 'JavaScript'> alert('Erro, usuário não autenticado!') </script>";
+            echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
+        
+        }
         require "../estrutura/header.php";
         $bd = new BD();
         $questoes = $bd->selecionarQuestoes($conexao, $_POST['idQuiz']);

@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php require "../estrutura/header.php";
+    <?php 
         
-        ?>
+        if(count($_SESSION) == 0){
+            echo "<script language= 'JavaScript'> alert('Erro, usuário não autenticado!') </script>";
+            echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
+        
+        }
+        require "../estrutura/header.php";  ?>
         
         <title>Game Of Partterns</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
