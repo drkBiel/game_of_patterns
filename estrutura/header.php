@@ -6,6 +6,12 @@
         session_start();
         $bd = new BD();
         $conexao = $bd->conexao();
+        
+        if(count($_SESSION) == 0){
+            echo "<script language= 'JavaScript'> alert('Erro, usuário não autenticado!') </script>";
+            echo "<script language= 'JavaScript'> location.href='../' </script>";
+        
+        }
 
         $usuario = $bd->selecionarUsuario($conexao, $_SESSION['email']);
         ?>

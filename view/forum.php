@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-    <?php 
+    <?php
+        require "../estrutura/header.php"; 
         if(count($_SESSION) == 0){
             echo "<script language= 'JavaScript'> alert('Erro, usuário não autenticado!') </script>";
             echo "<script language= 'JavaScript'> location.href='../' </script>";
         }
 
-        require "../estrutura/header.php";
+        
         $quiz = $bd->selecionarQuiz($conexao,$_POST['idQuiz']);
 
         $user = $bd->selecionarUsuarioID($conexao, $quiz[0]['id_User']);

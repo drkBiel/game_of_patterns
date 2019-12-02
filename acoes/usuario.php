@@ -1,13 +1,38 @@
 <?php
     session_start();
-    if(count($_SESSION) > 0){
-        echo count($_SESSION);
-        ob_start();
-        require "../bd/bd.php";
-        $bd = new BD();
-        $conexao = $bd->conexao();
+    require "../bd/bd.php";
+    $bd = new BD();
+    $conexao = $bd->conexao();
+    $acao = $_POST['acao'];
+
+    echo $acao;
+    if($acao == "logar"){
+        //Dados do login
+        $lgEmail = $_POST['lgEmail'] ? $_POST['lgEmail'] : '';
+        $lgSenha = $_POST['lgSenha'] ? $_POST['lgSenha'] : '';
         
-        $acao = $_POST['acao'];
+        $qtdUsuario = $bd->verificarUsuario($conexao, $lgEmail, $lgSenha);
+    
+        //Armazena o dado do tipo do Usuario que vai ser logado;
+        if ($qtdUsuario == 1) {
+            $_SESSION['email'] = $lgEmail;
+            
+            header('Location: ../view/inicial.php');
+                            
+        }else{
+            echo "<script language= 'JavaScript'> alert('Login e/ou senha incorretos!') </script>";
+            echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
+            end();
+        }
+        
+    }
+
+    else if(count($_SESSION) > 0){
+        ob_start();
+        echo "<script language= 'JavaScript'> alert('Logado!') </script>";
+        
+        
+       
 
         if($acao == "cadastrar"){
             //Dados do cadastro
@@ -34,28 +59,7 @@
             end();
         }
         
-        else if($acao == "logar"){
-            //Dados do login
-            $lgEmail = $_POST['lgEmail'] ? $_POST['lgEmail'] : '';
-            $lgSenha = $_POST['lgSenha'] ? $_POST['lgSenha'] : '';
-            
-            $qtdUsuario = $bd->verificarUsuario($conexao, $lgEmail, $lgSenha);
-        
-            //Armazena o dado do tipo do Usuario que vai ser logado;
-            if ($qtdUsuario == 1) {
-                session_start();
-                $_SESSION['email'] = $lgEmail;
-                
-                header('Location: ../view/inicial.php');
-                end();
-                                
-            }else{
-                echo "<script language= 'JavaScript'> alert('Login e/ou senha incorretos!') </script>";
-                echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
-                end();
-            }
-            
-        }else if($acao == "editar"){
+        else if($acao == "editar"){
             $nome = $_POST['nome'] ? $_POST['nome'] : ' ';
             $email = $_POST['email'] ? $_POST['email'] : ' ';
             $senha = $_POST['senha'] ? $_POST['senha'] : ' ';
@@ -80,6 +84,7 @@
             
         }
 }else{
+    echo "<script language= 'JavaScript'> alert('Falha!') </script>";
     echo "<script language= 'JavaScript'> alert('Erro, usuário não autenticado!') </script>";
     echo "<script language= 'JavaScript'> location.href='../' </script>";
 }
