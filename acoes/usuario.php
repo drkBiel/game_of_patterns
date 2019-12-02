@@ -23,7 +23,7 @@
                 echo "<script language= 'JavaScript'> alert('Cadastro realizado com sucesso') </script>";
             }
             
-            echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
+            echo "<script language= 'JavaScript'> location.href='../' </script>";
             end();
         }
 
@@ -81,6 +81,6 @@
         }
 }else{
     echo "<script language= 'JavaScript'> alert('Erro, usuário não autenticado!') </script>";
-    echo "<script language= 'JavaScript'> location.href='../index.php' </script>";
+    echo "<script language= 'JavaScript'> location.href='../' </script>";
 }
 ?>
