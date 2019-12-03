@@ -121,29 +121,28 @@
     </div>
 
     <form action="../acoes/quiz.php" method="post" class="form-group form-inline" id="formNovoQuiz" >
-        <div  class="shadow-lg p-3 b-5 bg-light rounded mt-2 area">
-            <div id="nomedoquiz" class="nav justify-content-center" style="height:auto;">
-                <div>
-                    <div class="container">
-                        <div class="row" style="margin-top:2%; margin-bottom:1%;">
-                            <div class="col-md-6">
-                                Nome do Quiz:
-                                <input class="form-control" type="text" name="nomeQuiz" style="margin-left:2%;" required="">
-                            </div>
+        <div  class="shadow-lg p-3 b-5 bg-light rounded mt-2 area" style="margin-left:20%;">
+            <div id="nomedoquiz" class="nav justify-content-center d-flex" style="height:auto; width:auto; margin-left:0;">
+                <table class="table table-responsive table-borderless" style="margin-top:2%; margin-left:auto; margin-right:auto; display:contents;" align="center">
+                    <tr>
+                        <td>
+                            Nome do Quiz:
+                            <input class="form-control" type="text" name="nomeQuiz" style="margin-left:auto;" required="">
+                        </td>
 
-                            <div class="col-5">
-                                Número de questões: &nbsp
-                                <input class="form-control" type="number" id="qtdQuestoes" name="qtdQuestoes" placeholder="2 - 10" min="2" max="10" style="width: 28%;">
-                            </div>
+                        <td>
+                            Número de questões: &nbsp
+                            <input class="form-control" type="number" id="qtdQuestoes" name="qtdQuestoes" placeholder="2 - 10" min="2" max="10" style="width: auto; margin-left:auto;">
+                        </td>
 
-                            <div class="col-1" align="center">
-                                <input type="button" class="btn btn-warning" id="btnGerarQuestoes" value="Gerar">
-                            </div>
-                        </div>
+                        <td>
+                            <input type="button" class="btn btn-warning" id="btnGerarQuestoes" value="Gerar">
+                        </td>
+                    </tr>
+                </table>
                         
-                    </div>
-                </div>
             </div>
+        </div>
         <div id="areaQuestoes" style="margin-top:3%; margin-left:5%;"></div>
         <input type="hidden" name="acao" value="cadastrar">
         <input type="hidden" name="idUsuario" value="<?php echo $usuario[0]['id']; ?>">
