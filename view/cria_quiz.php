@@ -27,7 +27,7 @@
                 <div class="col-md-12" style="margin-left: 5%; margin-top: 2%;">
                     <div>
                         <h3 id="numQuestao">1 - Questão: </h3>
-                        <textarea placeholder="Escreva o conteúdo da questão ..." id="content_question"> </textarea>
+                        <textarea placeholder="Escreva o conteúdo da questão ..." id="content_question"></textarea>
                     </div> 
                 </div>
             </div>
@@ -127,7 +127,7 @@
                     <tr>
                         <td>
                             Nome do Quiz:
-                            <input class="form-control" type="text" name="nomeQuiz" style="margin-left:auto;" required="">
+                            <input class="form-control nomeQuiz" type="text" name="nomeQuiz" style="margin-left:auto;" required="">
                         </td>
 
                         <td>
@@ -139,29 +139,36 @@
                             <input type="button" class="btn btn-warning" id="btnGerarQuestoes" value="Gerar">
                         </td>
                     </tr>
+
                 </table>
-                        
+                
+                <hr style="width:100%;">
+                <div id="areaQuestoes" style="margin-left:5%; width:100%;">
+                    <input type="hidden" name="acao" value="cadastrar">
+                    <input type="hidden" name="idUsuario" value="<?php echo $usuario[0]['id']; ?>">
+                </div>
+
+                <div class="container d-flex justify-content-center" style="margin-top:1%; margin-bottom:1%;">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="button" class="btn btn-warning" id="btnVoltar" style="margin-left:3%;" value="Voltar">
+                        </div>
+
+                        <div class="col-6">
+                            <input type="button" class="btn btn-warning" id="btnProximo" style="margin-left:3%;" value="Proximo">
+                            <input type="button" class="btn btn-warning" id="btnConcluir" style="margin-left:3%;" value="Concluir">
+                        </div>
+                    </div>
+                </div>  
+                
             </div>
         </div>
-        <div id="areaQuestoes" style="margin-top:3%; margin-left:5%;"></div>
-        <input type="hidden" name="acao" value="cadastrar">
-        <input type="hidden" name="idUsuario" value="<?php echo $usuario[0]['id']; ?>">
+        
     </form>
     
     
     
-    <div class="container d-flex justify-content-center" style="margin-top:1%; margin-bottom:1%;">
-        <div class="row">
-            <div class="col-6">
-                <input type="button" class="btn btn-warning" id="btnVoltar" style="margin-left:3%;" value="Voltar">
-            </div>
-
-            <div class="col-6">
-                <input type="button" class="btn btn-warning" id="btnProximo" style="margin-left:3%;" value="Proximo">
-                <input type="button" class="btn btn-warning" id="btnConcluir" style="margin-left:3%;" value="Concluir">
-            </div>
-        </div>
-    </div>      
+        
    
 
 

@@ -4,6 +4,7 @@ $('#btnConcluir').hide();
 
 let cont = 0;
 let questao = 1;
+let contChr = 0;
 
 $("#btnGerarQuestoes").click(function () {
     if ((parseInt($('#qtdQuestoes').val())) <= 10 && (parseInt($('#qtdQuestoes').val())) >= 2) {
@@ -37,6 +38,7 @@ $("#btnGerarQuestoes").click(function () {
 
             cloneAlternativas.children().children().children('#div_alt_e').children(".col-sm-11").children().addClass('alt_e_q' + (cont));
             cloneAlternativas.children().children().children('#div_alt_e').children(".col-sm-11").children().attr("name", 'alt_e_q' + (cont));
+            contChr = 1;
 
             //Adicionando as classes da ação e da alternativa correta de cada questão
             cloneEnunciado.children('.d-flex').children().children('#alt_crt').addClass('alt_crt_q' + (cont));
@@ -93,8 +95,11 @@ $(document).on('click', '.btnGerarAlternativas', function () {
         //Verificando a qtd de alternativas
         if (numAlts == 4) {
             $('.alt_e_q' + questao).parent().parent().hide();
+            $('.alt_crt_q' + questao).val("");
+            contChr = 1;
         } else if (numAlts == 5) {
             $('.alt_e_q' + questao).parent().parent().show();
+            contChr = 0;
         }
 
     } else {
@@ -111,22 +116,32 @@ $(document).on('click', '.btnGerarAlternativas', function () {
 });
 
 $("#btnProximo").click(function () {
-    if (questao + 1 <= cont) {
-        $('.enun_q' + questao).hide();
-        $('.alts_q' + questao).hide();
+    let altsVazias = verificarAlternativas(questao);
+    let altCrtVazias = verificarAltsCrts(questao);
+    let enunciadosVazios = verificarEnunciados(questao);
 
-        questao += 1;
-
-        $('.enun_q' + questao).show();
-        $('.alts_q' + questao).show();
-        $('.alt_e_q' + questao).parent().parent().hide();
-
-        if (questao + 1 > cont) {
-            $("#btnProximo").hide();
-            $("#btnConcluir").show();
+    if (altsVazias == 0 && altCrtVazias == 0 && enunciadosVazios == 0) {
+        if (questao + 1 <= cont) {
+            $('.enun_q' + questao).hide();
+            $('.alts_q' + questao).hide();
+    
+            questao += 1;
+    
+            $('.enun_q' + questao).show();
+            $('.alts_q' + questao).show();
+            $('.alt_e_q' + questao).parent().parent().hide();
+            contChr = 1;
+            
+            if (questao + 1 > cont) {
+                $("#btnProximo").hide();
+                $("#btnConcluir").show();
+                
+            }
+    
         }
-
     }
+    
+    
 });
 
 //Ativa a função do botão voltar
@@ -139,7 +154,8 @@ $("#btnVoltar").click(function () {
 
         $('.enun_q' + questao).show();
         $('.alts_q' + questao).show();
-
+        
+        
         if (questao + 1 <= cont) {
             $("#btnProximo").show();
             $("#btnConcluir").hide();
@@ -149,62 +165,66 @@ $("#btnVoltar").click(function () {
 
 //Ativa a função do botão concluir
 $("#btnConcluir").click(function () {
-    let altsVazias = verificarAlternativas();
-    let altCrtVazias = verificarAltsCrts();
-    let enunciadosVazios = verificarEnunciados();
+    let altsVazias = verificarAlternativas(questao);
+    let altCrtVazias = verificarAltsCrts(questao);
+    let enunciadosVazios = verificarEnunciados(questao);
 
     if (altsVazias == 0 && altCrtVazias == 0 && enunciadosVazios == 0) {
-        $("#formNovoQuiz").submit();
+        if($(".nomeQuiz").val() == ""){
+            alert("Nome não preenchido;")
+        }else{
+            $("#formNovoQuiz").submit();
+        }
+        
     }
 });
 
 
 //Verifica as alternativas de todas as questões
-function verificarAlternativas() {
+function verificarAlternativas(qst) {
     let contAltsVazias = 0;
-    let q = new Array(cont + 1);
-    let mensagem = "Alternativas não preenchidas: ";
-    for (let i = 1; i <= cont; i++) {
+    let q = new Array(qst + 1);
+    let mensagem = "";
+    let i = 0;
 
-        let numAlts = $('.enun_q' + i).children(".form-group").children(".col-xs-2").children().val();
-        q[i] = "\n      " + i + "ª Questão\n            ";
+    let numAlts = $('.enun_q' + qst).children(".form-group").children(".col-xs-2").children().val();
+    q[i] = "Alternativa(s) não preenchida(s) \n            ";
 
-        let alt_a = $('.alt_a_q' + i).val();
-        let alt_b = $('.alt_b_q' + i).val();
-        let alt_c = $('.alt_c_q' + i).val();
-        let alt_d = $('.alt_d_q' + i).val();
+    let alt_a = $('.alt_a_q' + qst).val();
+    let alt_b = $('.alt_b_q' + qst).val();
+    let alt_c = $('.alt_c_q' + qst).val();
+    let alt_d = $('.alt_d_q' + qst).val();
 
-        if (alt_a == "") {
-            q[i] += "a) ";
-            contAltsVazias++;
-        }
-
-        if (alt_b == "") {
-            q[i] += "b) ";
-            contAltsVazias++;
-        }
-
-        if (alt_c == "") {
-            q[i] += "c) ";
-            contAltsVazias++;
-        }
-
-        if (alt_d == "") {
-            q[i] += "d) ";
-            contAltsVazias++;
-        }
-
-        if (numAlts == 5) {
-            let alt_e = $('.alt_e_q' + i).val()
-
-            if (alt_e == "") {
-                q[i] += "e) ";
-                contAltsVazias++;
-            }
-        }
-
-        mensagem += q[i];
+    if (alt_a == "") {
+        q[i] += "a) ";
+        contAltsVazias++;
     }
+
+    if (alt_b == "") {
+        q[i] += "b) ";
+        contAltsVazias++;
+    }
+
+    if (alt_c == "") {
+        q[i] += "c) ";
+        contAltsVazias++;
+    }
+
+    if (alt_d == "") {
+        q[i] += "d) ";
+        contAltsVazias++;
+    }
+
+    if (numAlts == 5) {
+        let alt_e = $('.alt_e_q' + i).val()
+
+        if (alt_e == "") {
+            q[i] += "e) ";
+            contAltsVazias++;
+        }
+    }
+
+    mensagem += q[i];
 
     if (contAltsVazias > 0) {
         alert(mensagem);
@@ -214,20 +234,15 @@ function verificarAlternativas() {
 }
 
 //Verifica os campos da alternativas correta de todas as questões
-function verificarAltsCrts() {
+function verificarAltsCrts(qst) {
     let contAltCrtVazias = 0;
-    let mensagem = "Alternativa correta não preenchida: \n      ";
+    let mensagem = "Alternativa correta não preenchida!";
+    let alt_crt = $('.alt_crt_q' + qst).val();
 
-    for (let i = 1; i <= cont; i++) {
-
-        let alt_crt = $('.alt_crt_q' + i).val();
-
-        if (alt_crt == "") {
-            mensagem += i + "ª ";
-            contAltCrtVazias++;
-        }
-
+    if (alt_crt == "") {
+        contAltCrtVazias++;
     }
+  
 
     if (contAltCrtVazias > 0) {
         alert(mensagem);
@@ -237,19 +252,14 @@ function verificarAltsCrts() {
 }
 
 //Verifica os enunciados de todas as questões
-function verificarEnunciados() {
+function verificarEnunciados(qst) {
+    
     let contEnunVazios = 0;
-    let mensagem = "Enunciados não preenchidos: \n      ";
+    let mensagem = "Enunciado não preenchido!";
+    let enunciado = $(".enun_alt_q" + qst).val();
 
-    for (let i = 1; i <= cont; i++) {
-
-        let enunciado = $(".enun_alt_q" + i).val();
-
-        if (enunciado == "") {
-            mensagem += i + "ª ";
-            contEnunVazios++;
-        }
-
+    if (enunciado == "") {
+        contEnunVazios++;
     }
 
     if (contEnunVazios > 0) {
@@ -270,7 +280,7 @@ function ApenasLetras(e, t) {
         } else {
             return true;
         }
-        if (charCode > 96 && charCode < 102)
+        if (charCode > 96 && charCode < (102 - contChr))
         {
             return true;
         } else {
