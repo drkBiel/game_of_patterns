@@ -209,6 +209,7 @@ class BD {
 
         while ($quizzes = mysqli_fetch_array($resultado)) {
             $tblQuiz[$i]['id'] = $quizzes['id_Quiz'];
+            $tblQuiz[$i]['id_User'] = $quizzes['id_Quiz'];
             $tblQuiz[$i]['nome'] = $quizzes['nome'];
             $tblQuiz[$i]['descricao'] = $quizzes['descricao'];
 
@@ -317,7 +318,7 @@ class BD {
 
     // Ranking
     public function montarRanking($con) {
-        $comando = "SELECT nome, pontuacao FROM `usuario` ORDER BY pontuacao DESC";
+        $comando = "SELECT nome, pontuacao, email FROM `usuario` ORDER BY pontuacao DESC";
         $resultado = mysqli_query($con, $comando);
         $usuarios = array();
         $listUsuarios = array();
@@ -326,6 +327,7 @@ class BD {
 
         while ($listUsuarios = mysqli_fetch_array($resultado)) {
             $usuarios[$i]['nome'] = $listUsuarios['nome'];
+            $usuarios[$i]['email'] = $listUsuarios['email'];
             $usuarios[$i]['pont'] = $listUsuarios['pontuacao'];
 
             $i++;
