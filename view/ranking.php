@@ -25,31 +25,7 @@
         <link rel="stylesheet" type="text/css" href="../estrutura/css/ranking.css">
 
     </head>
-    <body>
-        <!-- divisão -->
-        <h1 align="center">Ranking Geral</h1>
-        <div  id="area" class="shadow-lg p-3 b-5 bg-light rounded mt-2">
-            <div id="quadro">
-                <table class="table " align="center" id="tabela_ranking">
-                    <thead>
-                        <tr>
-                            <th>Ranking</th>
-                            <th>Nome de usuário</th>
-                            <th>Pontuação</th>
-                        </tr>
-                    </thead>
-                    <?php
-                    $ranking = $bd->montarRanking($conexao);
-                    for ($i = 0; $i < count($ranking); $i++) {
-                        echo '<tr>';
-                        echo '<td>' . (string) ($i + 1) . ' º</td>';
-                        echo '<td>' . $ranking[$i]['nome'] . '</td>';
-                        echo '<td>' . number_format($ranking[$i]['pont'], 2, '.', '') . '</td>';
-                        echo '</tr>';
-                    }
-                    ?>
-
-                </table>
+    
             </div>
         </div> <!-- area -->
 
