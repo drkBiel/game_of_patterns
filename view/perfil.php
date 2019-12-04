@@ -31,6 +31,7 @@
                 <div class="col-md-3 align-self-center" align="center"> <!-- Imagem -->
                     <img src="../img/perfil.png">
                     <a href="conf_perfil.php">
+                    <b><h6> <?php echo $usuario[0]['nome'] ?> </h5></b> 
                         <button type="submit" id="btnCad" class="btn btn-warning mt-2">
                             <span class="badge badge-gradient"><img src="../img/configuracao-icone.png"></span> Atualizar 
                         </button>
@@ -38,7 +39,7 @@
                 </div>
 
                 <div class="col-md-3" align="center"> <!-- Posição No Ranking -->
-                    <b><h3> <?php echo $usuario[0]['nome'] ?> </h3></b> 
+                    
 
                     <div class="cd_perfil bg-light">
                         <h5 align="center" id="tl_perfil">Posição no ranking</h5>
