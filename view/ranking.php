@@ -101,7 +101,12 @@
                 </table>
             </div>
         </div> <!-- area -->
+        
+        <footer class="card text-center">
+            <div class="card-footer">
 
+            </div>
+        </footer>
       
 
         <!-- Direitos das imagens -->

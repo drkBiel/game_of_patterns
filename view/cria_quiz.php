@@ -176,7 +176,7 @@
 
     <footer class="card text-center">
       <div class="card-footer">
-        Entrega do dia 25 de Setembro de 2019.
+        
       </div>
     </footer>
     
