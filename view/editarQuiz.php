@@ -215,7 +215,7 @@
 
         <footer class="card text-center">
             <div class="card-footer">
-
+                Entrega do dia 25 de Setembro de 2019.
             </div>
         </footer>
         
@@ -351,6 +351,7 @@
 
 <script>
     let contAlts = 0;
+
     //Adaptação da ideia de Vinicius Bortoletto da comunidade da Allura
     //Restringe o campo apenas a digitar letras de a-e 
     function ApenasLetras(e, t) {
@@ -386,6 +387,7 @@
             $("#div_alt_e"+idQuestao).remove();    
         }
         cont = 1;
+        $("#alt_crt_q"+idQuestao).val("");
         $("#del_alt_e"+idQuestao).hide();
         $("#add_alt_e"+idQuestao).show();
     }
