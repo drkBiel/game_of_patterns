@@ -275,7 +275,7 @@
         <h3 style="margin-left:10%; margin-top:2%;">Quizzes criados</h3>
 
 
-        <div id="area_cards">
+        <div id="area_cards" style="margin-bottom: 3%;">
             <div class="row"> <!-- Linha de cards -->
                 <table class="table table-responsive table-borderless">
                     <tr>
@@ -339,7 +339,11 @@
             </div>
         </div>
 
+        <footer class="card text-center">
+            <div class="card-footer">
 
+            </div>
+        </footer>
 
     </body>
 

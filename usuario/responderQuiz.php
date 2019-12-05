@@ -144,6 +144,12 @@
         <input type="hidden" name="idUsuario" value="<?php echo $usuario[0]['id']; ?>">
     </form>
 
+    <footer class="card text-center">
+        <div class="card-footer">
+
+        </div>
+    </footer>
+
 </body>
 
 

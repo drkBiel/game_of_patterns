@@ -3,6 +3,7 @@
     <head>
         <?php
         require "../estrutura/header.php";
+        require "../estrutura/foot.php";
         if(count($_SESSION) == 0){
             echo "<script language= 'JavaScript'> alert('Erro, usuário não autenticado!') </script>";
             echo "<script language= 'JavaScript'> location.href='../' </script>";
@@ -77,6 +78,12 @@
                 
             </div>
         </div>
+
+        <footer class="card text-center">
+            <div class="card-footer">
+
+            </div>
+        </footer>
 
 
         
