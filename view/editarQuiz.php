@@ -350,6 +350,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <script>
+    let contAlts = 0;
     //Adaptação da ideia de Vinicius Bortoletto da comunidade da Allura
     //Restringe o campo apenas a digitar letras de a-e 
     function ApenasLetras(e, t) {
@@ -361,7 +362,7 @@
             } else {
                 return true;
             }
-            if (charCode > 96 && charCode < 102)
+            if (charCode > 96 && charCode < 102 - contAlts)
             {
                 return true;
             } else {
@@ -384,7 +385,7 @@
         if (resp == 1) {
             $("#div_alt_e"+idQuestao).remove();    
         }
-
+        cont = 1;
         $("#del_alt_e"+idQuestao).hide();
         $("#add_alt_e"+idQuestao).show();
     }
@@ -393,7 +394,7 @@
         $("#div_alt_e0").show();
         let cloneAlternativa = $("#div_alt_e0").clone();
         $("#div_alt_e0").hide();
-
+        cont = 0;
         cloneAlternativa.attr("id","div_alt_e"+idQuestao);
 
         $("#container_q"+idQuestao).append(cloneAlternativa);
