@@ -215,23 +215,24 @@
             <div class="row"> <!-- Linha de cards -->
                 <table class="table table-responsive table-borderless tblCrProfs">
                     <tr>
-                        <?php for ($i = 0; $i < ($qtdQuizzesProfs); $i++) { ?>
+                        <?php  for ($i = 0; $i < $qtdQuizzesProfs; $i++)   { ?>
                             <td>
                                 <?php
-                                $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[0]['id_User']);
+                                $profQuiz = $bd->selecionarUsuarioID($conexao, $quizProfs[$i]['id_User']);
+                                
                                 if (in_array($quiz, $qProfsPercorridos)) {
-                                    
-                                } else if ($quizProfs[0]['id_User'] != $usuario[0]['id']) {
-                                    $qProfsPercorridos[$i] = $quiz;
+                                
+                                } else if ($quizProfs[$i]['id_User'] != $usuario[0]['id']) {
+                                    $qProfsPercorridos[$i] = $quizProfs[$i];
                                     ?>
                                     <div class="card ml-3" style="width: 20rem; position: relative; margin-left: 10%;"> <!-- card -->
                                         <div class="card-body" style="position: relative;">
 
-                                            <h5 class="card-title"> <?php echo $quizProfs[0]['nome']; ?></h5>
+                                            <h5 class="card-title"> <?php echo $quizProfs[$i]['nome']; ?></h5>
                                             <p class="card-text"> <b> Criado por: <?php echo $profQuiz[0]['nome']; ?> </b></p>
                                             <p class="card-text"><?php
-                                                if ($quizProfs[0]['descricao'] != "") {
-                                                    echo $quizProfs[0]['descricao'];
+                                                if ($quizProfs[$i]['descricao'] != "") {
+                                                    echo $quizProfs[$i]['descricao'];
                                                 } else {
                                                     echo "Esse quiz não possui descrição";
                                                 }
@@ -247,7 +248,7 @@
                                                     </form>
 
                                                     <form action="forum.php" method="post">
-                                                        <input type='hidden' name='idQuiz' value="<?php echo $quizProfs[0]['id_Quiz'] ?>">
+                                                        <input type='hidden' name='idQuiz' value="<?php echo $quizProfs[$i]['id_Quiz'] ?>">
                                                         <input type='hidden' name='idUser' value="<?php echo $usuario[0]['id'] ?>">
                                                         <div class="col align-self-end"> <button type='submit' class='btn btn-info'> Forum </a> </div>
                                                     </form>
@@ -262,7 +263,7 @@
                     </tr>
 
                     <?php 
-                        if ($i == 0 || $quizProfs[0]['id_User'] == $usuario[0]['id']) { ?>
+                        if ($i == 0 && $i != 5 || $quizProfs[0]['id_User'] == $usuario[0]['id']) { ?>
                             <h4 style="color: #fa7202; margin-left: 3%;" class="text-center" align="center"> Nenhum quiz criado por professor </h4>
                             <script> $(".tblCrProfs").remove(); </script>
                         <?php } ?>
