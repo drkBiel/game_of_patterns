@@ -27,6 +27,24 @@
         
     }
 
+    if($acao == "cadastrar"){
+        //Dados do cadastro
+        $nome = $_POST['cdNome'] ? $_POST['cdNome'] : ' ';
+        $cdEmail = $_POST['cdEmail'] ? $_POST['cdEmail'] : ' ';
+        $cdSenha = $_POST['cdSenha'] ? $_POST['cdSenha'] : ' ';
+        $tpUsuario = $_POST['tpUser'] ? $_POST['tpUser'] : ' ';
+
+        if($bd->verificarEmail($conexao, $_POST['cdEmail']) > 0){
+            echo "<script language= 'JavaScript'> alert('Email já cadastrado!') </script>";
+        }else{
+            $bd->cadastrarUsuario($conexao, $nome, $cdEmail, $tpUsuario, $cdSenha);
+            echo "<script language= 'JavaScript'> alert('Cadastro realizado com sucesso') </script>";
+        }
+        
+        echo "<script language= 'JavaScript'> location.href='../' </script>";
+        end();
+    }
+
     else if(count($_SESSION) > 0){
         ob_start();
         echo "<script language= 'JavaScript'> alert('Logado!') </script>";
@@ -34,25 +52,9 @@
         
        
 
-        if($acao == "cadastrar"){
-            //Dados do cadastro
-            $nome = $_POST['cdNome'] ? $_POST['cdNome'] : ' ';
-            $cdEmail = $_POST['cdEmail'] ? $_POST['cdEmail'] : ' ';
-            $cdSenha = $_POST['cdSenha'] ? $_POST['cdSenha'] : ' ';
-            $tpUsuario = $_POST['tpUser'] ? $_POST['tpUser'] : ' ';
+        
 
-            if($bd->verificarEmail($conexao, $_POST['cdEmail']) > 0){
-                echo "<script language= 'JavaScript'> alert('Email já cadastrado!') </script>";
-            }else{
-                $bd->cadastrarUsuario($conexao, $nome, $cdEmail, $tpUsuario, $cdSenha);
-                echo "<script language= 'JavaScript'> alert('Cadastro realizado com sucesso') </script>";
-            }
-            
-            echo "<script language= 'JavaScript'> location.href='../' </script>";
-            end();
-        }
-
-        else if ($acao == "sair") {
+        if ($acao == "sair") {
             session_start();
             session_destroy();
             header('Location: ../index.php');
