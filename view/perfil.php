@@ -13,6 +13,14 @@
         $bd = new BD();
         $hqr = $bd->selecionarHQRUsuario($conexao, $usuario[0]['id']);
         $posicao = $bd->verificarPosicao($conexao, $_SESSION['email']);
+        $allHQR = $bd->selecionarHQRs($conexao);
+        $ranking = $bd->montarRanking($conexao);
+        $quizzes = $bd->selecionarQuizSistema($conexao,$usuario[0]['id']);
+
+        $colTempHqr = array_column($allHQR, 'tempo');
+        $idColMin = array_search(min($colTempHqr), $colTempHqr);
+        $idColMax = array_search(max($colTempHqr), $colTempHqr);
+
         ?>
          
         
@@ -70,12 +78,100 @@
                     
                 </div>
 
-                <div id="badges" class="col-md-9"> <!-- Posição No Ranking -->
-                    <h5 align="center" class="mt-2">Minhas Conquistas</h5>
-                    <hr> 
-                   
-                </div>
                 
+                
+                <div id="badges" class="col-md-9 container"> <!-- Posição No Ranking -->
+                    <h5 align="center" class="mt-2">Minhas Conquistas</h5>
+                    <hr style="width: 100%;">
+
+                    <div class="row">
+                        
+                        <?php if(count($hqr) == count($quizzes) && count($hqr) != 0) {?>
+                            <div class="col">
+                                <div class="card border-secondary mb-1" style="max-width: 8rem;">
+                                    <div class="card-header align-self-center" style="max-width:8rem; padding-left:1%;">
+                                        <img class="align-self-center" src="../img/badges/rei_quiz.png" style="width:8rem;  padding-right:8%; padding-left:8%;">
+                                    </div>
+                                    
+                                    <div class="card-body align-self-center">
+                                        <span> <p class="card-text" style="font-family: inherit; color:#fa7202; font-weight: 700;">Rei dos quizzes</p> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        
+                        <?php if($ranking[0]['email'] == $_SESSION['email']) { ?>
+                            <div class="col">
+                                <div class="card border-secondary mb-1" style="max-width: 8rem;">
+                                    <div class="card-header align-self-center" style="max-width:8rem; padding-left:1%;">
+                                        <img class="align-self-center" src="../img/badges/medalha-1.png" style="width:8rem;  padding-right:8%; padding-left:8%;">
+                                    </div>
+                                    
+                                    <div class="card-body align-self-center">
+                                        <span> <p class="card-text" style="font-family: inherit; color:#fa7202; font-weight: 700;">1º Lugar</p> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if($ranking[1]['email'] == $_SESSION['email']) { ?>
+                            <div class="col">
+                                <div class="card border-secondary mb-1" style="max-width: 8rem;">
+                                    <div class="card-header align-self-center" style="max-width:8rem; padding-left:1%;">
+                                        <img class="align-self-center" src="../img/badges/medalha-2.png" style="width:8rem;  padding-right:8%; padding-left:8%;">
+                                    </div>
+                                    
+                                    <div class="card-body align-self-center">
+                                        <span> <p class="card-text" style="font-family: inherit; color:#fa7202; font-weight: 700;">2º Lugar</p> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if($ranking[2]['email'] == $_SESSION['email']) { ?>
+                            <div class="col">
+                                <div class="card border-secondary mb-1" style="max-width: 8rem;">
+                                    <div class="card-header align-self-center" style="max-width:8rem; padding-left:1%;">
+                                        <img class="align-self-center" src="../img/badges/medalha-3.png" style="width:8rem;  padding-right:8%; padding-left:8%;">
+                                    </div>
+                                    
+                                    <div class="card-body align-self-center">
+                                        <span> <p class="card-text" style="font-family: inherit; color:#fa7202; font-weight: 700;">3º Lugar</p> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if($allHQR[$idColMin]['id_User'] == $usuario[0]['id']) { ?>
+                            <div class="col">
+                                <div class="card border-secondary mb-1" style="max-width: 8rem;">
+                                    <div class="card-header align-self-center" style="max-width:8rem; padding-left:1%;">
+                                        <img class="align-self-center" src="../img/badges/mais-rapido.png" style="width:8rem;  padding-right:8%; padding-left:8%;">
+                                    </div>
+                                    
+                                    <div class="card-body align-self-center">
+                                        <span> <p class="card-text" style="font-family: inherit; color:#fa7202; font-weight: 700;">Respondeu rápido</p> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if($allHQR[$idColMax]['id_User'] == $usuario[0]['id']) { ?>
+                            <div class="col">
+                                <div class="card border-secondary mb-1" style="max-width: 8rem;">
+                                    <div class="card-header align-self-center" style="max-width:8rem; padding-left:1%;">
+                                        <img class="align-self-center" src="../img/badges/mais-lento.png" style="width:8rem;  padding-right:8%; padding-left:8%;">
+                                    </div>
+                                    
+                                    <div class="card-body align-self-center">
+                                        <span> <p class="card-text" style="font-family: inherit; color:#fa7202; font-weight: 700;">Respondeu lento</p> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        
+                    </div>
+                </div>
             </div>
         </div>
 

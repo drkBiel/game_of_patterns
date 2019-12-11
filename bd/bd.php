@@ -3,7 +3,7 @@
 class BD {
 
     public function conexao() {
-        $conexao = mysqli_connect("us-cdbr-iron-east-05.cleardb.net","b067d1527549e8","b7cf4a61","heroku_74583cad15e5fd0");
+        $conexao = mysqli_connect("localhost","root","","db_gop");
         if (!$conexao) {
             $men_erro = "Erro ao conectar" . mysqli_connect_error();
             die($men_erro);
@@ -166,6 +166,23 @@ class BD {
         return $tblQuiz;
     }
 
+    public function selecionarHQRs($con) {
+        $comando = "SELECT * FROM historico_qr";
+        $resultado = mysqli_query($con, $comando);
+        $tblQuiz = array();
+        $i = 0;
+
+        while ($quizzes = mysqli_fetch_array($resultado)) {
+            $tblQuiz[$i]['pontuacao'] = $quizzes['pontuacao'];
+            $tblQuiz[$i]['tempo'] = $quizzes['tempo'];
+            $tblQuiz[$i]['id_User'] = $quizzes['id_User'];
+
+            $i += 1;
+        }
+
+        return $tblQuiz;
+    }
+
     //Funções do histórico QR
     public function selecionarHQRUsuarioQuiz($con, $idQuiz, $idUsuario) {
         $comando = "SELECT * FROM historico_qr WHERE id_Quiz = '$idQuiz' AND id_User = '$idUsuario'";
@@ -182,6 +199,8 @@ class BD {
 
         return $tblQuiz;
     }
+
+    
 
     public function selecionarHQRUsuario($con, $idUsuario) {
         $comando = "SELECT * FROM historico_qr WHERE id_User = '$idUsuario'";
@@ -200,6 +219,21 @@ class BD {
     }
 
     // Funções do Quiz
+
+    //Seleciona todods os quizzes que não são criados pelo usuário
+    public function selecionarQuizSistema($con, $idUsuario) {
+        $comando = "SELECT * FROM quiz WHERE id_User != '$idUsuario'";
+        $resultado = mysqli_query($con, $comando);
+        $tblQuiz = array();
+        $i = 0;
+
+        while ($quizzes = mysqli_fetch_array($resultado)) {
+            $tblQuiz[$i]['idQuiz'] = $quizzes['id_Quiz'];
+            $i += 1;
+        }
+
+        return $tblQuiz;
+    }
 
     public function selecionarQuizzes($con) {
         $comando = "SELECT * FROM quiz WHERE id_User = 0";
