@@ -108,10 +108,9 @@
   <div class="card-body">
   	<h5 class="card-title text-warning">Aceitamos Sugestões</h5>
   	<p>Toda contribuição será bem vinda</p>
-  	<a href="login.php" class="btn btn-light">Voltar Ao Topo</a>
+  	<a href="index.php" class="btn btn-light">Voltar Ao Topo</a>
   </div>
   <div class="card-footer">
-  	Entrega do dia 11 de Agosto de 2019.
   </div>
 </footer>
   
